@@ -37,7 +37,7 @@ config :kothito, KothitoWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/kothito_web/views/.*(ex)$},
-      ~r{lib/kothito_web/templates/.*(eex)$}
+      ~r{lib/kothito_web/templates/.*(eex|slim|slime)$}
     ]
   ]
 

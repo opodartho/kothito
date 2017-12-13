@@ -17,6 +17,11 @@ config :kothito, KothitoWeb.Endpoint,
   pubsub: [name: Kothito.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Configures Slime template engines for phoenix
+config :phoenix, :template_engines,
+  slim: PhoenixSlime.Engine,
+  slime: PhoenixSlime.Engine
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
