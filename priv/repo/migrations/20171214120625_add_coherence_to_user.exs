@@ -18,6 +18,8 @@ defmodule Kothito.Repo.Migrations.AddCoherenceToUser do
       add :last_sign_in_ip, :string
       # unlockable_with_token
       add :unlock_token, :string
+      # rememberable
+      add :remember_created_at, :naive_datetime
     end
 
 

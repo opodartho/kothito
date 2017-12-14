@@ -47,7 +47,7 @@ defmodule Kothito.Coherence.Schemas do
     @repo.insert change_user(params)
   end
 
-  Enum.each [], fn module ->
+  Enum.each [Kothito.Coherence.Rememberable], fn module ->
 
     name =
       module
