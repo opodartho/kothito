@@ -41,5 +41,11 @@ config :coherence,
   messages_backend: KothitoWeb.Coherence.Messages,
   layout: {KothitoWeb.Coherence.LayoutView, :app},
   logged_out_url: "/",
-  opts: [:authenticatable]
+  email_from_name: "Your Name",
+  email_from_email: "yourname@example.com",
+  opts: [:authenticatable, :recoverable, :lockable, :trackable, :unlockable_with_token, :registerable]
+
+config :coherence, KothitoWeb.Coherence.Mailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: "your api key here"
 # %% End Coherence Configuration %%
