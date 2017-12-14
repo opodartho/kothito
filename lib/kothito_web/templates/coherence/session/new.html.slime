@@ -3,19 +3,19 @@
     .card-header.border-0
       .card-title.text-center
         .p-1
-          Kothata
-        h6.card-subtitle.line-on-side.text-muted.text-center.font-small-3.pt-2
-          span Login with Kothata
+          = img_tag(static_path(@conn, "/images/logo.png"))
+      h6.line-on-side.text-muted.text-center.font-small-3.pt-2
+        span Login with Kothata
 
     .card-content
       .card-body
-        = form_for @conn, session_path(@conn, :create), [as: :session], fn f->
+        = form_for @conn, session_path(@conn, :create), [as: :session, class: "form-horizontal form-simple"], fn f->
           - login_filed = Coherence.Config.login_field
           fieldset.form-group.position-relative.has-icon-left.mb-0
             = text_input f, login_filed, class: "form-control form-control-lg input-lg", placeholder: "Your Username", required: ""
             .form-control-position
-              i.ft-user
-          fieldset.form-group.position.relative.has-icon-left
+              i.fa.fa-user
+          fieldset.form-group.position-relative.has-icon-left
             = password_input f, :password, class: "form-control form-control-lg input-lg", placeholder: "Enter Password", required: ""
             .form-control-position
               i.fa.fa-key

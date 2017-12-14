@@ -1,0 +1,1756 @@
+$color_1: #404E67;
+$color_2: #F5F7FA;
+$color_3: #FFFFFF;
+$color_4: #111111;
+$color_5: #D87A68;
+$color_6: #205081;
+$color_7: #1087DD;
+$color_8: #3B5998;
+$color_9: #FF0084;
+$color_10: #F94877;
+$color_11: #444444;
+$color_12: #DD4B39;
+$color_13: #3F729B;
+$color_14: #007BB6;
+$color_15: #2672EC;
+$color_16: #F4731C;
+$color_17: #F7931E;
+$color_18: #CB2027;
+$color_19: #FF4500;
+$color_20: #FF5500;
+$color_21: #2C4762;
+$color_22: #55ACEE;
+$color_23: #1AB7EA;
+$color_24: #587EA3;
+$color_25: #720E9E;
+$color_26: #AD412D;
+$color_27: #0C1D2F;
+$color_28: #094D7E;
+$color_29: #1E2E4F;
+$color_30: #99004F;
+$color_31: #D4073D;
+$color_32: #96271A;
+$color_33: #223D52;
+$color_34: #003650;
+$color_35: #0E459E;
+$color_36: #A24608;
+$color_37: #A95E06;
+$color_38: #731216;
+$color_39: #992900;
+$color_40: #993300;
+$color_41: #0C141C;
+$color_42: #147BC9;
+$color_43: #0D7091;
+$color_44: #344B61;
+$color_45: #2E0640;
+$background_color_1: #D87A68;
+$background_color_2: #CE563F;
+$background_color_3: #205081;
+$background_color_4: #163758;
+$background_color_5: #1087DD;
+$background_color_6: #0D6AAD;
+$background_color_7: #3B5998;
+$background_color_8: #2D4373;
+$background_color_9: #FF0084;
+$background_color_10: #CC006A;
+$background_color_11: #F94877;
+$background_color_12: #F71752;
+$background_color_13: #444444;
+$background_color_14: #2B2B2B;
+$background_color_15: #DD4B39;
+$background_color_16: #C23321;
+$background_color_17: #3F729B;
+$background_color_18: #305777;
+$background_color_19: #007BB6;
+$background_color_20: #005983;
+$background_color_21: #2672EC;
+$background_color_22: #125ACD;
+$background_color_23: #F4731C;
+$background_color_24: #D35B0A;
+$background_color_25: #F7931E;
+$background_color_26: #DA7908;
+$background_color_27: #CB2027;
+$background_color_28: #9F191F;
+$background_color_29: #EFF7FF;
+$background_color_30: #000000;
+$background_color_31: #BCDEFF;
+$background_color_32: #FF5500;
+$background_color_33: #CC4400;
+$background_color_34: #2C4762;
+$background_color_35: #1C2E3F;
+$background_color_36: #55ACEE;
+$background_color_37: #2795E9;
+$background_color_38: #1AB7EA;
+$background_color_39: #1295BF;
+$background_color_40: #587EA3;
+$background_color_41: #466482;
+$background_color_42: #720E9E;
+$background_color_43: #500A6F;
+$background_color_44: #FF4500;
+$border_color_1: #FFFFFF;
+$border_color_2: #D87A68;
+$border_color_3: #DFDFDF;
+$border_color_4: #205081;
+$border_color_5: #1087DD;
+$border_color_6: #3B5998;
+$border_color_7: #FF0084;
+$border_color_8: #F94877;
+$border_color_9: #444444;
+$border_color_10: #DD4B39;
+$border_color_11: #3F729B;
+$border_color_12: #007BB6;
+$border_color_13: #2672EC;
+$border_color_14: #F4731C;
+$border_color_15: #F7931E;
+$border_color_16: #CB2027;
+$border_color_17: #000000;
+$border_color_18: black;
+$border_color_19: #FF5500;
+$border_color_20: #2C4762;
+$border_color_21: #55ACEE;
+$border_color_22: #1AB7EA;
+$border_color_23: #587EA3;
+$border_color_24: #720E9E;
+$border_right_color_1: inherit;
+$border_left_color_1: inherit;
+
+.navbar-container {
+  a.nav-link-search {
+    float: left;
+  }
+  .search-input {
+    float: left;
+    padding-top: 1.2rem;
+    width: 0;
+    .input {
+      width: 0;
+      border: none;
+      background: none;
+      -webkit-transition: all 0.2s ease-out;
+      -o-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out;
+      line-height: 16px;
+    }
+  }
+  .search-input.open {
+    .input {
+      width: 200px;
+      padding: 5px 10px;
+      outline: none;
+      background: none;
+      -webkit-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+  }
+}
+.navbar-light {
+  .search-input {
+    .input {
+      color: $color_1;
+    }
+  }
+  .search-input.open {
+    .input {
+      color: $color_1;
+      border-bottom: 1px solid #404E67;
+    }
+  }
+}
+.navbar-semi-dark {
+  .search-input {
+    .input {
+      color: $color_1;
+    }
+  }
+  .search-input.open {
+    .input {
+      color: $color_1;
+      border-bottom: 1px solid #404E67;
+    }
+  }
+}
+.navbar-dark {
+  .search-input {
+    .input {
+      color: $color_2;
+    }
+  }
+  .search-input.open {
+    .input {
+      color: $color_2;
+      border-bottom: 1px solid #F5F7FA;
+    }
+  }
+}
+.navbar-semi-light {
+  .search-input {
+    .input {
+      color: $color_2;
+    }
+  }
+  .search-input.open {
+    .input {
+      color: $color_2;
+      border-bottom: 1px solid #F5F7FA;
+    }
+  }
+}
+.chart-container {
+  position: relative;
+  width: 100%;
+}
+.chart {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.jqstooltip {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+[class*='bs-callout'] {
+  p {
+    letter-spacing: 0.6px;
+  }
+  .media {
+    border-radius: 0.25rem !important;
+  }
+  .callout-arrow-left {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      right: -11%;
+      border-left: 8px solid;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left-color: $border_left_color_1;
+      margin-top: -8px;
+    }
+  }
+  .callout-arrow-right {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: -11%;
+      border-left: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left-color: $border_left_color_1;
+      border-right: 8px solid;
+      border-right-color: $border_right_color_1;
+      margin-top: -8px;
+    }
+  }
+}
+[class*='bs-callout'].callout-bordered {
+  border: 1px solid #DDDDDD;
+}
+[class*='bs-callout'].callout-border-left {
+  border-left: 5px solid;
+}
+[class*='bs-callout'].callout-border-right {
+  border-right: 5px solid;
+}
+[class*='bs-callout'].callout-round {
+  border-radius: 5rem !important;
+  .media-left {
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+  }
+  .media-right {
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+}
+[class*='bs-callout'].callout-square {
+  border-radius: 0 !important;
+  .media {
+    border-radius: 0 !important;
+  }
+  .callout-arrow-left {
+    border-radius: 0 !important;
+  }
+  .callout-arrow-right {
+    border-radius: 0 !important;
+  }
+}
+.btn-social {
+  position: relative;
+  padding-left: 3.95rem;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  > &:first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2.95rem;
+    line-height: 2.7rem;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+.btn-social-icon {
+  position: relative;
+  padding-left: 3.95rem;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.95rem;
+  width: 2.95rem;
+  padding: 0;
+  > &:first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2.95rem;
+    line-height: 2.7rem;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border: none;
+    text-align: center;
+    width: 100% !important;
+  }
+}
+.btn-social.btn-lg {
+  padding-left: 3.25rem;
+  > &:first-child {
+    line-height: 3.7rem;
+    width: 3rem;
+    font-size: 1.8em;
+  }
+}
+.btn-lg.btn-social-icon {
+  padding-left: 3.25rem;
+  > &:first-child {
+    line-height: 3.7rem;
+    width: 3rem;
+    font-size: 1.8em;
+  }
+}
+.btn-social.btn-sm {
+  padding-left: 3.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  > &:first-child {
+    line-height: 2.5rem;
+    width: 3rem;
+    font-size: 1.4em;
+  }
+}
+.btn-sm.btn-social-icon {
+  padding-left: 3.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  > &:first-child {
+    line-height: 2.5rem;
+    width: 3rem;
+    font-size: 1.4em;
+  }
+}
+.btn-social.btn-xs {
+  padding-left: 2rem;
+  font-size: 0.75rem;
+  line-height: 0.2rem;
+  > &:first-child {
+    line-height: 2rem;
+    width: 1.8rem;
+    font-size: 1.2em;
+  }
+}
+.btn-xs.btn-social-icon {
+  padding-left: 2rem;
+  font-size: 0.75rem;
+  line-height: 0.2rem;
+  > &:first-child {
+    line-height: 2rem;
+    width: 1.8rem;
+    font-size: 1.2em;
+  }
+}
+.btn-social-icon.btn-lg {
+  height: 4rem;
+  width: 4rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn-social-icon.btn-sm {
+  height: 2.5rem;
+  width: 2.5rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn-social-icon.btn-xs {
+  height: 2rem;
+  width: 2rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn-adn {
+  background-color: $background_color_1;
+  color: $color_3;
+  background-color: $background_color_1;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_1;
+    border-color: $border_color_2;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_1;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_2;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_2;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-adn.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-adn.disabled {
+  background-color: $background_color_1;
+  border-color: $border_color_1;
+}
+.show {
+  >.btn-adn.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_2;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-bitbucket.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_4;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-dropbox.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_6;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-facebook.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_8;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-flickr.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_10;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-foursquare.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_12;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-github.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_14;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-google.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_16;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-instagram.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_18;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-linkedin.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_20;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-microsoft.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_22;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-odnoklassniki.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_24;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-openid.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_26;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-pinterest.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_28;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-reddit.dropdown-toggle {
+    color: $color_4;
+    background-color: $background_color_31;
+    border-color: $border_color_18;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+  }
+  >.btn-soundcloud.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_33;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-tumblr.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_35;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-twitter.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_37;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-vimeo.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_39;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-vk.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_41;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  >.btn-yahoo.dropdown-toggle {
+    color: $color_3;
+    background-color: $background_color_43;
+    border-color: $border_color_3;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+}
+.btn-bitbucket {
+  background-color: $background_color_3;
+  color: $color_3;
+  background-color: $background_color_3;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_3;
+    border-color: $border_color_4;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_3;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_4;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_4;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-bitbucket.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-bitbucket.disabled {
+  background-color: $background_color_3;
+  border-color: $border_color_1;
+}
+.btn-dropbox {
+  background-color: $background_color_5;
+  color: $color_3;
+  background-color: $background_color_5;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_5;
+    border-color: $border_color_5;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_5;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_6;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_6;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-dropbox.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-dropbox.disabled {
+  background-color: $background_color_5;
+  border-color: $border_color_1;
+}
+.btn-facebook {
+  background-color: $background_color_7;
+  color: $color_3;
+  background-color: $background_color_7;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_7;
+    border-color: $border_color_6;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_7;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_8;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_8;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-facebook.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-facebook.disabled {
+  background-color: $background_color_7;
+  border-color: $border_color_1;
+}
+.btn-flickr {
+  background-color: $background_color_9;
+  color: $color_3;
+  background-color: $background_color_9;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_9;
+    border-color: $border_color_7;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_9;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_10;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_10;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-flickr.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-flickr.disabled {
+  background-color: $background_color_9;
+  border-color: $border_color_1;
+}
+.btn-foursquare {
+  background-color: $background_color_11;
+  color: $color_3;
+  background-color: $background_color_11;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_11;
+    border-color: $border_color_8;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_11;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_12;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_12;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-foursquare.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-foursquare.disabled {
+  background-color: $background_color_11;
+  border-color: $border_color_1;
+}
+.btn-github {
+  background-color: $background_color_13;
+  color: $color_3;
+  background-color: $background_color_13;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_13;
+    border-color: $border_color_9;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_13;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_14;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_14;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-github.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-github.disabled {
+  background-color: $background_color_13;
+  border-color: $border_color_1;
+}
+.btn-google {
+  background-color: $background_color_15;
+  color: $color_3;
+  background-color: $background_color_15;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_15;
+    border-color: $border_color_10;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_15;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_16;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_16;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-google.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-google.disabled {
+  background-color: $background_color_15;
+  border-color: $border_color_1;
+}
+.btn-instagram {
+  background-color: $background_color_17;
+  color: $color_3;
+  background-color: $background_color_17;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_17;
+    border-color: $border_color_11;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_17;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_18;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_18;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-instagram.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-instagram.disabled {
+  background-color: $background_color_17;
+  border-color: $border_color_1;
+}
+.btn-linkedin {
+  background-color: $background_color_19;
+  color: $color_3;
+  background-color: $background_color_19;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_19;
+    border-color: $border_color_12;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_19;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_20;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_20;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-linkedin.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-linkedin.disabled {
+  background-color: $background_color_19;
+  border-color: $border_color_1;
+}
+.btn-microsoft {
+  background-color: $background_color_21;
+  color: $color_3;
+  background-color: $background_color_21;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_21;
+    border-color: $border_color_13;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_21;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_22;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_22;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-microsoft.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-microsoft.disabled {
+  background-color: $background_color_21;
+  border-color: $border_color_1;
+}
+.btn-odnoklassniki {
+  background-color: $background_color_23;
+  color: $color_3;
+  background-color: $background_color_23;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_23;
+    border-color: $border_color_14;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_23;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_24;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_24;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-odnoklassniki.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-odnoklassniki.disabled {
+  background-color: $background_color_23;
+  border-color: $border_color_1;
+}
+.btn-openid {
+  background-color: $background_color_25;
+  color: $color_4;
+  background-color: $background_color_25;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_4;
+    background-color: $background_color_25;
+    border-color: $border_color_15;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_25;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_26;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_26;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-openid.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-openid.disabled {
+  background-color: $background_color_25;
+  border-color: $border_color_1;
+}
+.btn-pinterest {
+  background-color: $background_color_27;
+  color: $color_3;
+  background-color: $background_color_27;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_27;
+    border-color: $border_color_16;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_27;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_28;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_28;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-pinterest.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-pinterest.disabled {
+  background-color: $background_color_27;
+  border-color: $border_color_1;
+}
+.btn-reddit {
+  background-color: $background_color_29;
+  color: $color_4;
+  background-color: $background_color_29;
+  border-color: $border_color_17;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_30;
+    border-color: $border_color_17;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_29;
+    border-color: $border_color_17;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_4;
+        background-color: $background_color_31;
+        border-color: $border_color_18;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_4;
+      background-color: $background_color_31;
+      border-color: $border_color_18;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+.btn-reddit.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+}
+.btn-reddit.disabled {
+  background-color: $background_color_29;
+  border-color: $border_color_17;
+}
+.btn-soundcloud {
+  background-color: $background_color_32;
+  color: $color_3;
+  background-color: $background_color_32;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_32;
+    border-color: $border_color_19;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_32;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_33;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_33;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-soundcloud.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-soundcloud.disabled {
+  background-color: $background_color_32;
+  border-color: $border_color_1;
+}
+.btn-tumblr {
+  background-color: $background_color_34;
+  color: $color_3;
+  background-color: $background_color_34;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_34;
+    border-color: $border_color_20;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_34;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_35;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_35;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-tumblr.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-tumblr.disabled {
+  background-color: $background_color_34;
+  border-color: $border_color_1;
+}
+.btn-twitter {
+  background-color: $background_color_36;
+  color: $color_4;
+  background-color: $background_color_36;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_4;
+    background-color: $background_color_36;
+    border-color: $border_color_21;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_36;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_37;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_37;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-twitter.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-twitter.disabled {
+  background-color: $background_color_36;
+  border-color: $border_color_1;
+}
+.btn-vimeo {
+  background-color: $background_color_38;
+  color: $color_3;
+  background-color: $background_color_38;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_38;
+    border-color: $border_color_22;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_38;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_39;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_39;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-vimeo.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-vimeo.disabled {
+  background-color: $background_color_38;
+  border-color: $border_color_1;
+}
+.btn-vk {
+  background-color: $background_color_40;
+  color: $color_3;
+  background-color: $background_color_40;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_40;
+    border-color: $border_color_23;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_40;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_41;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_41;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-vk.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-vk.disabled {
+  background-color: $background_color_40;
+  border-color: $border_color_1;
+}
+.btn-yahoo {
+  background-color: $background_color_42;
+  color: $color_3;
+  background-color: $background_color_42;
+  border-color: $border_color_1;
+  &:hover {
+    color: $color_3;
+    background-color: $background_color_42;
+    border-color: $border_color_24;
+  }
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  &:disabled {
+    background-color: $background_color_42;
+    border-color: $border_color_1;
+  }
+  &:not([disabled]) {
+    &:not(.disabled) {
+      &:active {
+        color: $color_3;
+        background-color: $background_color_43;
+        border-color: $border_color_3;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
+    &:not(.disabled).active {
+      color: $color_3;
+      background-color: $background_color_43;
+      border-color: $border_color_3;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+.btn-yahoo.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.btn-yahoo.disabled {
+  background-color: $background_color_42;
+  border-color: $border_color_1;
+}
+.btn-outline-adn {
+  border: 1px solid #D87A68 !important;
+  color: $color_5;
+  &:hover {
+    color: $color_26;
+    border: 1px solid #AD412D !important;
+  }
+}
+.btn-outline-bitbucket {
+  border: 1px solid #205081 !important;
+  color: $color_6;
+  &:hover {
+    color: $color_27;
+    border: 1px solid #0C1D2F !important;
+  }
+}
+.btn-outline-dropbox {
+  border: 1px solid #1087DD !important;
+  color: $color_7;
+  &:hover {
+    color: $color_28;
+    border: 1px solid #094D7E !important;
+  }
+}
+.btn-outline-facebook {
+  border: 1px solid #3B5998 !important;
+  color: $color_8;
+  &:hover {
+    color: $color_29;
+    border: 1px solid #1E2E4F !important;
+  }
+}
+.btn-outline-flickr {
+  border: 1px solid #FF0084 !important;
+  color: $color_9;
+  &:hover {
+    color: $color_30;
+    border: 1px solid #99004F !important;
+  }
+}
+.btn-outline-foursquare {
+  border: 1px solid #F94877 !important;
+  color: $color_10;
+  &:hover {
+    color: $color_31;
+    border: 1px solid #D4073D !important;
+  }
+}
+.btn-outline-github {
+  border: 1px solid #444444 !important;
+  color: $color_11;
+  &:hover {
+    color: $color_4;
+    border: 1px solid #111111 !important;
+  }
+}
+.btn-outline-google {
+  border: 1px solid #DD4B39 !important;
+  color: $color_12;
+  &:hover {
+    color: $color_32;
+    border: 1px solid #96271A !important;
+  }
+}
+.btn-outline-instagram {
+  border: 1px solid #3F729B !important;
+  color: $color_13;
+  &:hover {
+    color: $color_33;
+    border: 1px solid #223D52 !important;
+  }
+}
+.btn-outline-linkedin {
+  border: 1px solid #007BB6 !important;
+  color: $color_14;
+  &:hover {
+    color: $color_34;
+    border: 1px solid #003650 !important;
+  }
+}
+.btn-outline-microsoft {
+  border: 1px solid #2672EC !important;
+  color: $color_15;
+  &:hover {
+    color: $color_35;
+    border: 1px solid #0E459E !important;
+  }
+}
+.btn-outline-odnoklassniki {
+  border: 1px solid #F4731C !important;
+  color: $color_16;
+  &:hover {
+    color: $color_36;
+    border: 1px solid #A24608 !important;
+  }
+}
+.btn-outline-openid {
+  border: 1px solid #F7931E !important;
+  color: $color_17;
+  &:hover {
+    color: $color_37;
+    border: 1px solid #A95E06 !important;
+  }
+}
+.btn-outline-pinterest {
+  border: 1px solid #CB2027 !important;
+  color: $color_18;
+  &:hover {
+    color: $color_38;
+    border: 1px solid #731216 !important;
+  }
+}
+.btn-outline-reddit {
+  border: 1px solid #FF4500 !important;
+  color: $color_19;
+  &:hover {
+    color: $color_39;
+    border: 1px solid #992900 !important;
+  }
+}
+.btn-outline-soundcloud {
+  border: 1px solid #FF5500 !important;
+  color: $color_20;
+  &:hover {
+    color: $color_40;
+    border: 1px solid #993300 !important;
+  }
+}
+.btn-outline-tumblr {
+  border: 1px solid #2C4762 !important;
+  color: $color_21;
+  &:hover {
+    color: $color_41;
+    border: 1px solid #0C141C !important;
+  }
+}
+.btn-outline-twitter {
+  border: 1px solid #55ACEE !important;
+  color: $color_22;
+  &:hover {
+    color: $color_42;
+    border: 1px solid #147BC9 !important;
+  }
+}
+.btn-outline-vimeo {
+  border: 1px solid #1AB7EA !important;
+  color: $color_23;
+  &:hover {
+    color: $color_43;
+    border: 1px solid #0D7091 !important;
+  }
+}
+.btn-outline-vk {
+  border: 1px solid #587EA3 !important;
+  color: $color_24;
+  &:hover {
+    color: $color_44;
+    border: 1px solid #344B61 !important;
+  }
+}
+.btn-outline-yahoo {
+  border: 1px solid #720E9E !important;
+  color: $color_25;
+  &:hover {
+    color: $color_45;
+    border: 1px solid #2E0640 !important;
+  }
+}
+.bg-adn {
+  background-color: $background_color_1;
+}
+.bg-bitbucket {
+  background-color: $background_color_3;
+}
+.bg-dropbox {
+  background-color: $background_color_5;
+}
+.bg-facebook {
+  background-color: $background_color_7;
+}
+.bg-flickr {
+  background-color: $background_color_9;
+}
+.bg-foursquare {
+  background-color: $background_color_11;
+}
+.bg-github {
+  background-color: $background_color_13;
+}
+.bg-google {
+  background-color: $background_color_15;
+}
+.bg-instagram {
+  background-color: $background_color_17;
+}
+.bg-linkedin {
+  background-color: $background_color_19;
+}
+.bg-microsoft {
+  background-color: $background_color_21;
+}
+.bg-odnoklassniki {
+  background-color: $background_color_23;
+}
+.bg-openid {
+  background-color: $background_color_25;
+}
+.bg-pinterest {
+  background-color: $background_color_27;
+}
+.bg-reddit {
+  background-color: $background_color_44;
+}
+.bg-soundcloud {
+  background-color: $background_color_32;
+}
+.bg-tumblr {
+  background-color: $background_color_34;
+}
+.bg-twitter {
+  background-color: $background_color_36;
+}
+.bg-vimeo {
+  background-color: $background_color_38;
+}
+.bg-vk {
+  background-color: $background_color_40;
+}
+.bg-yahoo {
+  background-color: $background_color_42;
+}
+@media (max-width: 991px) {
+  #navbar-mobile {
+    .search-input.open {
+      .input {
+        width: 180px;
+        color: $color_1;
+        border-bottom: 1px solid #404E67;
+        overflow: hidden;
+        position: relative;
+        background: #FFFFFF;
+        z-index: 1;
+        padding: 8px 10px;
+        top: -13px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .chart-container {
+    overflow-x: scroll;
+    overflow-y: visible;
+    max-width: 100%;
+  }
+}
+

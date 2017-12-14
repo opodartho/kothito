@@ -1,0 +1,92 @@
+/* Input with icon */
+.has-icon-left .form-control {
+  padding-left : 2.5rem;
+}
+
+.form-control-position {
+  position : absolute;
+  top : 4px;
+  right : 0;
+  z-index : 2;
+  display : block;
+  width : 2.5rem;
+  height : 2.5rem;
+  line-height : 2.5rem;
+  text-align : center;
+}
+/*---------------------------------
+Input Icon
+---------------------------------*/
+.position-relative .form-control {
+  padding-right : -webkit-calc(2.75rem + 2px);
+  padding-right :    -moz-calc(2.75rem + 2px);
+  padding-right :         calc(2.75rem + 2px);
+}
+.position-relative .form-control.form-control-lg ~ .form-control-position {
+  top : 10px;
+}
+.position-relative .form-control.form-control-sm ~ .form-control-position {
+  top : -3px;
+}
+
+/* Input Icon left */
+.has-icon-left .form-control {
+  padding-right : 1rem;
+  padding-left : -webkit-calc(2.75rem + 2px);
+  padding-left :    -moz-calc(2.75rem + 2px);
+  padding-left :         calc(2.75rem + 2px);
+}
+
+.has-icon-left .form-control-position {
+  right : auto;
+  left : inherit;
+}
+
+input[type='color'] {
+  height : -webkit-calc(2.75rem + 2px);
+  height :    -moz-calc(2.75rem + 2px);
+  height :         calc(2.75rem + 2px);
+}
+
+input[type='date'].form-control, input[type='time'].form-control, input[type='datetime-local'].form-control, input[type='month'].form-control {
+  line-height : 1.45;
+}
+
+.font-size-large {
+  font-size : 1.25rem;
+}
+
+.font-size-base {
+  font-size : 1rem;
+}
+
+.font-size-small {
+  font-size : 0.875rem;
+}
+
+.font-size-xsmall {
+  font-size : 0.75rem;
+}
+
+.input-group-xs .form-control, .input-group-xs .input-group-addon, .input-group-xs .input-group-btn > button {
+  padding : 0.175rem 0.5rem;
+  font-size : 0.725rem;
+  line-height : 1.677777;
+  border-bottom-left-radius : 0.175rem;
+  border-top-left-radius : 0.175rem;
+}
+
+.input-group-xs .input-group-btn > button {
+  border-radius : 0.175rem;
+}
+
+/* .input-group-btn > button {
+    &.dropdown-toggle::after{
+        margin-top: -1.75rem;
+    }
+} */
+.input-group-addon {
+  padding-top : 0.2rem;
+  padding-bottom : 0.2rem;
+}
+
