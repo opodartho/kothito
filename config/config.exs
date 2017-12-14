@@ -39,6 +39,7 @@ config :coherence,
   web_module: KothitoWeb,
   router: KothitoWeb.Router,
   messages_backend: KothitoWeb.Coherence.Messages,
+  layout: {KothitoWeb.Coherence.LayoutView, :app},
   logged_out_url: "/",
   opts: [:authenticatable]
 # %% End Coherence Configuration %%

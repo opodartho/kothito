@@ -1,0 +1,29 @@
+.col-md-4.col-10.box-shadow-2.p-0
+  .card.border-grey.border-lighter-3.m-0
+    .card-header.border-0
+      .card-title.text-center
+        .p-1
+          Kothata
+        h6.card-subtitle.line-on-side.text-muted.text-center.font-small-3.pt-2
+          span Login with Kothata
+
+    .card-content
+      .card-body
+        = form_for @conn, session_path(@conn, :create), [as: :session], fn f->
+          - login_filed = Coherence.Config.login_field
+          fieldset.form-group.position-relative.has-icon-left.mb-0
+            = text_input f, login_filed, class: "form-control form-control-lg input-lg", placeholder: "Your Username", required: ""
+            .form-control-position
+              i.ft-user
+          fieldset.form-group.position.relative.has-icon-left
+            = password_input f, :password, class: "form-control form-control-lg input-lg", placeholder: "Enter Password", required: ""
+            .form-control-position
+              i.fa.fa-key
+          = if @remember do
+            .form-group.row
+              .col-md-6.col-12.text-center.text-md-left
+                fieldset
+                  input type="checkbox" name="remember" id="remember"
+                  label for="remember"
+                    = dgettext "coherence", "Remember Me?"
+          = submit dgettext("coherence", "Sign In"), class: "btn btn-primary btn-lg btn-block"
