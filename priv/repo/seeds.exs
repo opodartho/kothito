@@ -1,11 +1,11 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     Kothito.Repo.insert!(%Kothito.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+Kothito.Repo.delete_all Kothito.Coherence.User
+
+Kothito.Coherence.User.changeset(
+  %Kothito.Coherence.User{},
+  %{
+    name: "Test User",
+    email: "testuser@example.com",
+    password: "secret",
+    password_confirmation: "secret"}
+)
+|> Kothito.Repo.insert!
