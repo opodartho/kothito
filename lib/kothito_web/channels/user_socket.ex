@@ -3,6 +3,7 @@ defmodule KothitoWeb.UserSocket do
 
   ## Channels
   # channel "room:*", KothitoWeb.RoomChannel
+  channel "call", KothitoWeb.CallChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
