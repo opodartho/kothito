@@ -83,7 +83,7 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
     [
       recover_link(conn, user_schema, recover_link),
       unlock_link(conn, user_schema, unlock_link),
-      register_link(conn, user_schema, register_link),
+      register_link(conn, user_schema, register_link, opts[:class]),
       confirmation_link(conn, user_schema, confirm_link)
     ]
     |> List.flatten
@@ -138,15 +138,15 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
   def recover_link(conn, text \\ @recover_link), do:
     link(text, to: coherence_path(@helpers, :password_path, conn, :new))
 
-  @spec register_link(conn, module, false | String.t) :: [any] | []
-  def register_link(_conn, _user_schema, false), do: []
-  def register_link(conn, user_schema, text) do
-    if user_schema.registerable?, do: [register_link(conn, text)], else: []
+  @spec register_link(conn, module, false | String.t, String.t) :: [any] | []
+  def register_link(_conn, _user_schema, false, _classes), do: []
+  def register_link(conn, user_schema, text, classes) do
+    if user_schema.registerable?, do: [register_link(conn, text, classes)], else: []
   end
 
-  @spec register_link(conn, String.t) :: tuple
-  def register_link(conn, text \\ @register_link), do:
-    link(text, to: coherence_path(@helpers, :registration_path, conn, :new))
+  @spec register_link(conn, String.t, String.t) :: tuple
+  def register_link(conn, text \\ @register_link, classes), do:
+    link(text, to: coherence_path(@helpers, :registration_path, conn, :new), class: classes)
 
   @spec unlock_link(conn, module, false | String.t) :: [any] | []
   def unlock_link(_conn, _user_schema, false), do: []
