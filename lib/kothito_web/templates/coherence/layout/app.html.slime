@@ -11,11 +11,12 @@ html.loading lang="en" data-textdirection="ltr"
   body.vertical-layout.vertical-menu.1-column.menu-expanded.blank-page.blank-page data-open="click" data-menu="vertical-menu"
     .app-content.content
       .content-wrapper
-        .content-header.row
         .content-body
           section.flexbox-container
             .col-12.d-flex.align-items-center.justify-content-center
-              = render @view_module, @view_template, assigns
+              .col-md-4.col-10
+                = show_flash(@conn)
+                = render @view_module, @view_template, assigns
 
     script src="#{static_path(@conn, "/js/vendor.js")}"
     script src="#{static_path(@conn, "/js/auth.js")}"

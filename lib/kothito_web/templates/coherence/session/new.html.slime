@@ -1,37 +1,36 @@
-.col-md-4.col-10.box-shadow-2.p-0
-  .card.border-grey.border-lighter-3.m-0
-    .card-header.border-0
-      .card-title.text-center
-        .p-1
-          = img_tag(static_path(@conn, "/images/logo.png"))
-      h6.line-on-side.text-muted.text-center.font-small-3.pt-2
-        span Login with Kothito
+.card.border-grey.border-lighter-3.m-0.box-shadow-2.p-0
+  .card-header.border-0
+    .card-title.text-center
+      .p-1
+        = img_tag(static_path(@conn, "/images/logo.png"))
+    h6.line-on-side.text-muted.text-center.font-small-3.pt-2
+      span Login with Kothito
 
-    .card-content
-      .card-body
-        = form_for @conn, session_path(@conn, :create), [as: :session, class: "form-horizontal"], fn f->
-          - login_field = Coherence.Config.login_field
-          fieldset.form-group.position-relative.has-icon-left
-            = text_input f, login_field, class: "form-control", placeholder: "Your Email", required: ""
-            = error_tag f, login_field
-            .form-control-position
-              i.fa.fa-envelope-o
-          fieldset.form-group.position-relative.has-icon-left
-            = password_input f, :password, class: "form-control", placeholder: "Enter Password", required: ""
-            .form-control-position
-              i.fa.fa-key
-          = if @remember do
-            .form-group.row
-              .col-md-6.col-12.text-center.text-md-left
-                fieldset
-                  input.chk-remember#remember type="checkbox" name="remember"
-                  |&nbsp;
-                  label for="remember"
-                    = dgettext "coherence", "Remember Me?"
-              .col-md-6.col-12.float-sm-left.text-center.text-sm-right
-                = coherence_links(@conn, :new_session, recover: "Forget password?", register: false)
-          = submit dgettext("coherence", "Login"), class: "btn btn-outline-primary btn-block"
-      h6.line-on-side.text-muted.text-center.font-small-3.pt-2
-        span New to Kothito ?
-      .card-body
-         = coherence_links(@conn, :new_session, register: "Register", recover: false, class: "btn btn-outline-danger btn-block")
+  .card-content
+    .card-body
+      = form_for @conn, session_path(@conn, :create), [as: :session, class: "form-horizontal"], fn f->
+        - login_field = Coherence.Config.login_field
+        fieldset.form-group.position-relative.has-icon-left
+          = text_input f, login_field, class: "form-control", placeholder: "Your Email", required: ""
+          = error_tag f, login_field
+          .form-control-position
+            i.fa.fa-envelope-o
+        fieldset.form-group.position-relative.has-icon-left
+          = password_input f, :password, class: "form-control", placeholder: "Enter Password", required: ""
+          .form-control-position
+            i.fa.fa-key
+        = if @remember do
+          .form-group.row
+            .col-md-6.col-12.text-center.text-md-left
+              fieldset
+                input.chk-remember#remember type="checkbox" name="remember"
+                |&nbsp;
+                label for="remember"
+                  = dgettext "coherence", "Remember Me?"
+            .col-md-6.col-12.float-sm-left.text-center.text-sm-right
+              = coherence_links(@conn, :new_session, recover: "Forget password?", register: false)
+        = submit dgettext("coherence", "Login"), class: "btn btn-outline-primary btn-block"
+    h6.line-on-side.text-muted.text-center.font-small-3.pt-2
+      span New to Kothito ?
+    .card-body
+        = coherence_links(@conn, :new_session, register: "Register", recover: false, class: "btn btn-outline-danger btn-block")
