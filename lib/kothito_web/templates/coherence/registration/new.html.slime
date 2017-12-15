@@ -1,28 +1,36 @@
+= if @changeset.action do
+  .alert.alert-danger.alert-icon-left
+    = dgettext "coherence", "Oops, something went wrong!"
+
 .card.border-grey.border-lighter-3.m-0.box-shadow-2.p-0
   .card-header.border-0
     .card-title.text-center
       .p-1
         = img_tag(static_path(@conn, "/images/logo.png"))
-    h6.line-on-side.text-muted.text-center.font-small-3.pt-2
+    h6.line-on-side.text-muted.text-center.font-small-3
       span Register in Kothito
 
   .card-content
     .card-body
-      = form_for @conn, registration_path(@conn, :create), [as: :registration, class: "form-horizontal"], fn f->
+      = form_for @changeset, registration_path(@conn, :create), [as: :registration, class: "form-horizontal"], fn f->
         fieldset.form-group.position-relative.has-icon-left
           = text_input f, :name, class: "form-control", placeholder: "Full Name", required: ""
+          = error_tag f, :name
           .form-control-position
             i.fa.fa-user
         fieldset.form-group.position-relative.has-icon-left
           = text_input f, :email, class: "form-control", placeholder: "Your Email", required: ""
+          = error_tag f, :email
           .form-control-position
             i.fa.fa-envelope-o
         fieldset.form-group.position-relative.has-icon-left
           = password_input f, :password, class: "form-control", placeholder: "Enter Password", required: ""
+          = error_tag f, :passowrd
           .form-control-position
             i.fa.fa-key
         fieldset.form-group.position-relative.has-icon-left
           = password_input f, :password_confirmation, class: "form-control", placeholder: "Password Confirmation", required: ""
+          = error_tag f, :passowrd_confirmation
           .form-control-position
             i.fa.fa-key
         = submit dgettext("coherence", "Register"), class: "btn btn-outline-primary btn-block"
