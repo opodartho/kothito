@@ -1,0 +1,27 @@
+.col-md-4.col-10.box-shadow-2.p-0
+  .card.border-grey.border-lighter-3.px-2.py-2.m-0
+    .card-header.border-0.pb-0
+      .card-title.text-center
+        = img_tag(static_path(@conn, "/images/logo.png"))
+      h6.line-on-side.text-muted.text-center.font-small-3.pt-2
+        span Password Recovery.
+
+    .card-content
+      .card-body
+        = form_for @changeset, password_path(@conn, :update, @changeset.data), [as: :password, class: "form-horizontal"], fn f->
+          = hidden_input f, :reset_password_token
+          fieldset.form-group.position-relative.has-icon-left
+            = password_input f, :password, class: "form-control form-control-lg", placeholder: "Your Password", required: ""
+            .form-control-position
+              i.fa.fa-key
+          fieldset.form-group.position-relative.has-icon-left
+            = password_input f, :password_confirmation, class: "form-control form-control-lg", placeholder: "Password Confirmation", required: ""
+            .form-control-position
+              i.fa.fa-key
+          = submit dgettext("coherence", "Update Password"), class: "btn btn-outline-primary btn-lg btn-block"
+    .card-footer.border-0
+      .float-sm-left.text-center
+         = coherence_links(@conn, :layout, signin: "Login", register: false, class: "card-link")
+      .float-sm-right.text-center
+        |New to Kothito ? &nbsp;
+        = coherence_links(@conn, :new_session, register: "Create Account", recover: false, class: "card-link")
