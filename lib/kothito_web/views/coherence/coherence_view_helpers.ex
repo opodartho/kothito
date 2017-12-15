@@ -104,7 +104,7 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
         content_tag(list_tag, signout_link(conn, signout, signout_class))
       ]
     else
-      signin_link = content_tag(list_tag, link(signin, to: coherence_path(@helpers, :session_path, conn, :new)))
+      signin_link = link(signin, to: coherence_path(@helpers, :session_path, conn, :new), class: opts[:class])
       if Config.has_option(:registerable) && register do
         [content_tag(list_tag, link(register, to: coherence_path(@helpers, :registration_path, conn, :new))), signin_link]
       else

@@ -12,9 +12,9 @@
         = form_for @conn, session_path(@conn, :create), [as: :session, class: "form-horizontal"], fn f->
           - login_filed = Coherence.Config.login_field
           fieldset.form-group.position-relative.has-icon-left
-            = text_input f, login_filed, class: "form-control", placeholder: "Your Username", required: ""
+            = text_input f, login_filed, class: "form-control", placeholder: "Your Email", required: ""
             .form-control-position
-              i.fa.fa-user
+              i.fa.fa-envelope-o
           fieldset.form-group.position-relative.has-icon-left
             = password_input f, :password, class: "form-control", placeholder: "Enter Password", required: ""
             .form-control-position
@@ -31,6 +31,6 @@
                 = coherence_links(@conn, :new_session, recover: "Forget password?", register: false)
           = submit dgettext("coherence", "Login"), class: "btn btn-outline-primary btn-block"
       h6.line-on-side.text-muted.text-center.font-small-3.pt-2
-        span New to Kothito?
+        span New to Kothito ?
       .card-body
          = coherence_links(@conn, :new_session, register: "Register", recover: false, class: "btn btn-outline-danger btn-block")
