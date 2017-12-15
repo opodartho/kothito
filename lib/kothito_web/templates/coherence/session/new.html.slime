@@ -10,9 +10,10 @@
     .card-content
       .card-body
         = form_for @conn, session_path(@conn, :create), [as: :session, class: "form-horizontal"], fn f->
-          - login_filed = Coherence.Config.login_field
+          - login_field = Coherence.Config.login_field
           fieldset.form-group.position-relative.has-icon-left
-            = text_input f, login_filed, class: "form-control", placeholder: "Your Email", required: ""
+            = text_input f, login_field, class: "form-control", placeholder: "Your Email", required: ""
+            = error_tag f, login_field
             .form-control-position
               i.fa.fa-envelope-o
           fieldset.form-group.position-relative.has-icon-left
