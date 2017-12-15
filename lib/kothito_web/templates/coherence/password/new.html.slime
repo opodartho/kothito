@@ -8,7 +8,7 @@
 
     .card-content
       .card-body
-        = form_for @conn, registration_path(@conn, :create), [as: :registration, class: "form-horizontal"], fn f->
+        = form_for @conn, password_path(@conn, :create), [as: :password, class: "form-horizontal"], fn f->
           fieldset.form-group.position-relative.has-icon-left
             = text_input f, :email, class: "form-control form-control-lg", placeholder: "Your Email Address", required: ""
             .form-control-position
