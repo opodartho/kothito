@@ -29,7 +29,10 @@
                   = dgettext "coherence", "Remember Me?"
             .col-md-6.col-12.float-sm-left.text-center.text-sm-right
               = coherence_links(@conn, :new_session, recover: "Forget password?", register: false)
-        = submit dgettext("coherence", "Login"), class: "btn btn-outline-primary btn-block"
+        = submit class: "btn btn-outline-success btn-block" do
+          i.ft-unlock
+          |&nbsp;
+          = dgettext("coherence", "Login")
     h6.line-on-side.text-muted.text-center.font-small-3.pt-2
       span New to Kothito ?
     .card-body
