@@ -17,7 +17,7 @@
           = text_input f, :name, class: "form-control", placeholder: "Full Name", required: ""
           = error_tag f, :name
           .form-control-position
-            i.fa.fa-user
+            i.ft-user
         fieldset.form-group.position-relative.has-icon-left
           = text_input f, :email, class: "form-control", placeholder: "Your Email", required: ""
           = error_tag f, :email
@@ -33,7 +33,10 @@
           = error_tag f, :passowrd_confirmation
           .form-control-position
             i.fa.fa-key
-        = submit dgettext("coherence", "Register"), class: "btn btn-outline-primary btn-block"
+        = submit class: "btn btn-outline-primary btn-block" do
+          i.ft-user
+          |&nbsp;
+          = dgettext("coherence", "Register")
     h6.line-on-side.text-muted.text-center.font-small-3.pt-2
       span Have Account ?
     .card-body

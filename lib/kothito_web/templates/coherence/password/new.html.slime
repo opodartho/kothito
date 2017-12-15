@@ -12,7 +12,10 @@
           = text_input f, :email, class: "form-control form-control-lg", placeholder: "Your Email Address", required: ""
           .form-control-position
             i.fa.fa-envelope-o
-        = submit dgettext("coherence", "Recover Password"), class: "btn btn-outline-primary btn-lg btn-block"
+        = submit class: "btn btn-outline-primary btn-lg btn-block" do
+          i.ft-unlock
+          |&nbsp;
+          = dgettext("coherence", "Recover Password")
   .card-footer.border-0
     .float-sm-left.text-center
         = coherence_links(@conn, :layout, signin: "Login", register: false, class: "card-link")
