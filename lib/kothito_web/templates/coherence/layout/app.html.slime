@@ -16,3 +16,6 @@ html.loading lang="en" data-textdirection="ltr"
           section.flexbox-container
             .col-12.d-flex.align-items-center.justify-content-center
               = render @view_module, @view_template, assigns
+
+    script src="#{static_path(@conn, "/js/vendor.js")}"
+    script src="#{static_path(@conn, "/js/auth.js")}"

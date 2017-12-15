@@ -23,7 +23,8 @@
             .form-group.row
               .col-md-6.col-12.text-center.text-md-left
                 fieldset
-                  input type="checkbox" name="remember" id="remember"
+                  input.chk-remember#remember type="checkbox" name="remember"
+                  |&nbsp;
                   label for="remember"
                     = dgettext "coherence", "Remember Me?"
               .col-md-6.col-12.float-sm-left.text-center.text-sm-right

@@ -2,7 +2,11 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: "js/app.js"
+      joinTo: {
+        "js/app.js": /^js/,
+        "js/vendor.js": /^(vendor|deps|node_modules).*/,
+        "js/auth.js": /^js\/auth/
+      }
 
       // To use a separate vendor.js bundle, specify two files path
       // http://brunch.io/docs/config#-files-
@@ -64,7 +68,8 @@ exports.config = {
 
   modules: {
     autoRequire: {
-      "js/app.js": ["js/app"]
+      "js/app.js": ["js/app"],
+      "js/auth.js": ["js/auth/index"]
     }
   },
 
@@ -74,7 +79,8 @@ exports.config = {
       $: 'jquery',
       jQuery: 'jquery',
       Tether: 'tether',
-      bootstrap: 'bootstrap'
+      bootstrap: 'bootstrap',
+      icheck: 'icheck'
     }
   }
 };
