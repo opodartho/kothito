@@ -87,7 +87,7 @@ $border_left_color_1: rgba(0, 0, 0, 0.15);
   }
 }
 .header-navbar {
-  padding: 0;
+  padding: 0 !important;
   min-height: 4rem;
   font-family: $font_family_1;
   -webkit-transition: 300ms ease all;
