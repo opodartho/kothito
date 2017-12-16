@@ -92,17 +92,13 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
 
   def coherence_links(conn, :layout, opts) do
     list_tag      = Keyword.get opts, :list_tag, :li
-    signout_class = Keyword.get opts, :signout_class, "navbar-form"
+    signout_class = Keyword.get opts, :signout_class, "dropdown-item"
     signin        = Keyword.get opts, :signin, @signin_link
     signout       = Keyword.get opts, :signout, @signout_link
     register      = Keyword.get opts, :register, @register_link
 
     if Coherence.logged_in?(conn) do
-      current_user = Coherence.current_user(conn)
-      [
-        content_tag(list_tag, profile_link(current_user, conn)),
-        content_tag(list_tag, signout_link(conn, signout, signout_class))
-      ]
+      signout_link(conn, signout, signout_class)
     else
       signin_link = link(signin, to: coherence_path(@helpers, :session_path, conn, :new), class: opts[:class])
       if Config.has_option(:registerable) && register do

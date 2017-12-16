@@ -36,7 +36,7 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.fixed-top.navbar-semi
               span.avatar.avatar-online
                 = img_tag(static_path(@conn, "/images/portrait/small/avatar-s-11.png"))
                   i
-              span.user-name John Doe
+              span.user-name = current_user(@conn).name
             .dropdown-menu.dropdown-menu-right
               a.dropdown-item href="#" 
                 i.ft-user
@@ -51,7 +51,8 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.fixed-top.navbar-semi
                 i.ft-message-square
                 | Chats
               .dropdown-divider
-              a.dropdown-item href="#" 
-                i.ft-power
-                | Logout
+              = coherence_links(@conn, :layout, signout: "Logout")
+              / a.dropdown-item href="#" 
+              /   i.ft-power
+              /   | Logout
 

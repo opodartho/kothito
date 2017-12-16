@@ -40,6 +40,7 @@ defmodule KothitoWeb do
       import KothitoWeb.Router.Helpers
       import KothitoWeb.ErrorHelpers
       import KothitoWeb.Gettext
+      import KothitoWeb.Coherence.ViewHelpers
     end
   end
 

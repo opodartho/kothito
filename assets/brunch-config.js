@@ -59,7 +59,7 @@ exports.config = {
       $: 'jquery',
       jQuery: 'jquery',
       Tether: 'tether',
-      bootstrap: 'bootstrap',
+      bootstrap: 'bootstrap/dist/js/bootstrap.bundle.js',
       icheck: 'icheck'
     }
   }

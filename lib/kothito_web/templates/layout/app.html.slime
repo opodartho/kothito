@@ -13,4 +13,5 @@ html lang="en"
     = render "_navbar.html", assigns
     / = render @view_module, @view_template, assigns
 
+    script src="#{static_path(@conn, "/js/vendor.js")}"
     script src="#{static_path(@conn, "/js/app.js")}"
