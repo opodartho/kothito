@@ -11,6 +11,7 @@ html lang="en"
 
   body.vertical-layout.vertical-menu.2-columns.menu-expanded.fixed-navbar data-open="click" data-menu="vertical-menu" data-col="2-columns"
     = render "_navbar.html", assigns
+    = render "_sidebar.html", assigns
     / = render @view_module, @view_template, assigns
 
     script src="#{static_path(@conn, "/js/vendor.js")}"
