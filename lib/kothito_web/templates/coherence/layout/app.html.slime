@@ -8,7 +8,7 @@ html.loading lang="en" data-textdirection="ltr"
     meta content="" name="author"
     title Login
     link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
-  body.vertical-layout.vertical-menu.1-column.menu-expanded.blank-page.blank-page data-open="click" data-menu="vertical-menu"
+  body.vertical-layout.vertical-menu.1-column.blank-page.blank-page data-open="click" data-menu="vertical-menu"
     .app-content.content
       .content-wrapper
         .content-body

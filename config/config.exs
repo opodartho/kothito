@@ -50,7 +50,7 @@ config :coherence,
     :lockable,
     :trackable,
     :unlockable_with_token,
-    :registerable
+    registerable: [:new, :create]
   ]
 
 config :coherence, KothitoWeb.Coherence.Mailer,
