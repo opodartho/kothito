@@ -37,6 +37,7 @@ defmodule KothitoWeb.Router do
   scope "/", KothitoWeb do
     pipe_through :protected
 
+    resources "/users", ProfileController, only: [:index], as: :user
     get "/", CallController, :index
   end
   # Other scopes may use custom stacks.

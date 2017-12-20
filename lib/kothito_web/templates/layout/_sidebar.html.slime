@@ -2,7 +2,7 @@
   .main-menu-content
     ul#main-menu-navigation.navigation.navigation-main data-menu="menu-navigation" 
       li.nav-item
-        a href="index.html" 
+        = link to: user_path(@conn, :index) do
           i.ft-users
           span.menu-title data-i18n=""  Users
           span.badge.badge.badge-primary.badge-pill.float-right.mr-2 3

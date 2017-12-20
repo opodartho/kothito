@@ -1,0 +1,32 @@
+.col-xl-4.col-md-6.col-12
+  .card.profile-card-with-stats.box-shadow-2
+    .text-center
+      .card-body
+        = img_tag static_path(@conn, "/images/portrait/medium/avatar-m-5.png"), alt: "%{@user.name}", class: "rounded-circle height-150"
+      .card-body
+        h4.card-title = @user.name
+        h6.card-subtitle.text-muted Technical Lead
+      .text-center
+        a.btn.btn-social-icon.mr-1.mb-1.btn-outline-facebook href="#"
+          span.fa.fa-facebook
+        a.btn.btn-social-icon.mr-1.mb-1.btn-outline-twitter href="#"
+          span.fa.fa-twitter
+        a.btn.btn-social-icon.mr-1.mb-1.btn-outline-linkedin href="#"
+          span.fa.fa-linkedin
+        a.btn.btn-social-icon.mr-1.mb-1.btn-outline-github href="#"
+          span.fa.fa-github
+      .card-body
+        p Lorem ipsum dolor sit amet, autem imperdiet et nam. Nullam labores id quo, sed ei.
+        button.btn.btn-outline-danger.btn-md.mr-1 type="button"
+          i.fa.fa-plus
+          | Follow
+        button.btn.btn-outline-primary.btn-md.mr-1 type="button"
+          i.ft-user
+          | Profile
+    .list-group.list-group-flush
+      a.list-group-item href="#"
+        i.ft-mail
+        | &nbsp;Email
+      a.list-group-item href="#"
+        i.fa.fa-phone
+        | &nbsp;Mobile

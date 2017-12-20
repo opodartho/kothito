@@ -1,0 +1,3 @@
+section.row.mt-2
+  = for user <- @users do
+    = render "_profile.html", conn: @conn, user: user
