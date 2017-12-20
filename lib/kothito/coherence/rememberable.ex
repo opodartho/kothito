@@ -7,7 +7,8 @@ defmodule Kothito.Coherence.Rememberable do
 
   alias Coherence.Config
 
-  
+  @primary_key {:id, Ecto.UUID, autogenerate: true}
+  @foreign_key_type Ecto.UUID
 
   schema "rememberables" do
     field :series_hash, :string

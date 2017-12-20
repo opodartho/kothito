@@ -3,7 +3,8 @@ defmodule Kothito.Coherence.User do
   use Ecto.Schema
   use Coherence.Schema
 
-  
+  @primary_key {:id, Ecto.UUID, autogenerate: true}
+  @foreign_key_type Ecto.UUID
 
   schema "users" do
     field :name, :string
