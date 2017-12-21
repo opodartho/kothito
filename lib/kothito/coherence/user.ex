@@ -7,7 +7,7 @@ defmodule Kothito.Coherence.User do
   @foreign_key_type Ecto.UUID
 
   schema "users" do
-    field :name, :string
+    field :username, :string
     field :email, :string
     coherence_schema()
 
@@ -16,8 +16,8 @@ defmodule Kothito.Coherence.User do
 
   def changeset(model, params \\ %{}) do
     model
-    |> cast(params, [:name, :email] ++ coherence_fields())
-    |> validate_required([:name, :email])
+    |> cast(params, [:username, :email] ++ coherence_fields())
+    |> validate_required([:username, :email])
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
     |> validate_coherence(params)

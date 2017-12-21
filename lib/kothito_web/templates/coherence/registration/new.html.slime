@@ -14,8 +14,8 @@
     .card-body
       = form_for @changeset, registration_path(@conn, :create), [as: :registration, class: "form-horizontal"], fn f->
         fieldset.form-group.position-relative.has-icon-left
-          = text_input f, :name, class: "form-control", placeholder: "Full Name", required: ""
-          = error_tag f, :name
+          = text_input f, :username, class: "form-control", placeholder: "Username", required: ""
+          = error_tag f, :username
           .form-control-position
             i.ft-user
         fieldset.form-group.position-relative.has-icon-left
