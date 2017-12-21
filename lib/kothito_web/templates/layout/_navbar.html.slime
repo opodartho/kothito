@@ -38,7 +38,7 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.fixed-top.navbar-semi
                   i
               span.user-name = current_user(@conn).name
             .dropdown-menu.dropdown-menu-right
-              a.dropdown-item href="#" 
+              = link to: profile_path(@conn, :edit, current_user(@conn)), class: "dropdown-item" do
                 i.ft-user
                 | Edit Profile
               a.dropdown-item href="#" 

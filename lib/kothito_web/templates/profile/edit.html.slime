@@ -1,0 +1,83 @@
+section
+  .row
+    .col-md-12
+      .card
+        .card-header
+          h4.card-title User Profile
+          .heading-elements
+            ul.list-inline.mb-0
+              li
+                a data-action="expand"
+                  i.ft-maximize
+        .card-content.collapse.show
+          .card-body
+            form.form.form-horizontal
+              .form-body
+                h4.form-section
+                  i.ft-user
+                  | Personal Info
+                .form-group.row
+                  label.col-md-3.label-control First Name
+                  .col-md-9
+                    input.form-control placeholder="First Name" tyep="text"
+                .form-group.row
+                  label.col-md-3.label-control Last Name
+                  .col-md-9
+                    input.form-control placeholder="Last Name" tyep="text"
+                .form-group.row
+                  label.col-md-3.label-control Username
+                  .col-md-9
+                    input.form-control placeholder="Username" tyep="text"
+                .form-group.row
+                  label.col-md-3.label-control Nick Name
+                  .col-md-9
+                    input.form-control placeholder="Nick Name" tyep="text"
+                fieldset.form-group.row
+                  label.col-md-3.label-control Avatar
+                  .col-md-9
+                    label.custom-file.center-block.button
+                      input.custom-file-input type="file"
+                      span.custom-file-control
+                h4.form-section
+                  i.ft-mail
+                  | Contact Info & Bio
+                .form-group.row
+                  label.col-md-3.label-control Email
+                  .col-md-9
+                    input.form-control placeholder="Email" tyep="text"
+                .form-group.row
+                  label.col-md-3.label-control Phone
+                  .col-md-9
+                    input.form-control placeholder="Contact Number" tyep="text"
+                .form-group.row
+                  label.col-md-3.label-control Bio
+                  .col-md-9
+                    textarea.form-control.col-md-12 rows="4" name="bio" placeholder="Biography"
+                h4.form-section
+                  i.ft-share-2
+                  | Social
+                .form-group.row
+                  label.col-md-3.label-control Facebook
+                  .col-md-9
+                    input.form-control placeholder="https://facebook.com/" tyep="text"
+                .form-group.row
+                  label.col-md-3.label-control Linked in
+                  .col-md-9
+                    input.form-control placeholder="https://linkedin.com/" tyep="text"
+                .form-group.row
+                  label.col-md-3.label-control Github
+                  .col-md-9
+                    input.form-control placeholder="https://github.com/" tyep="text"
+                .form-group.row
+                  label.col-md-3.label-control Bitbucket
+                  .col-md-9
+                    input.form-control placeholder="https://bitbucket.com/" tyep="text"
+              .form-actions.right
+                button.btn.btn-warning.mr-1 type="button"
+                  i.ft-x
+                  | &nbsp;Cancel
+                button.btn.btn-primary type="submit"
+                  i.ft-check-square
+                  | &nbsp;Save
+
+
