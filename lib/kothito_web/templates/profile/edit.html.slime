@@ -11,7 +11,7 @@ section
                   i.ft-maximize
         .card-content.collapse.show
           .card-body
-            form.form.form-horizontal
+            = form_for @changeset, profile_path(@conn, :update, @user), [as: :user, class: "form form-horizontal"], fn f->
               .form-body
                 h4.form-section
                   i.ft-user
@@ -19,19 +19,22 @@ section
                 .form-group.row
                   label.col-md-3.label-control First Name
                   .col-md-9
-                    input.form-control placeholder="First Name" tyep="text"
+                    = text_input f, :firstname, class: "form-control", placeholder: "First name"
+                    = error_tag f, :firstname
                 .form-group.row
                   label.col-md-3.label-control Last Name
                   .col-md-9
-                    input.form-control placeholder="Last Name" tyep="text"
+                    = text_input f, :lastname, class: "form-control", placeholder: "Last Name"
+                    = error_tag f, :lastname
                 .form-group.row
                   label.col-md-3.label-control Username
                   .col-md-9
-                    input.form-control placeholder="Username" tyep="text"
+                    = text_input f, :username, class: "form-control", placeholder: "Username", disabled: true
                 .form-group.row
                   label.col-md-3.label-control Nick Name
                   .col-md-9
-                    input.form-control placeholder="Nick Name" tyep="text"
+                    = text_input f, :nickname, class: "form-control", placeholder: "Nick Name"
+                    = error_tag f, :nickname
                 fieldset.form-group.row
                   label.col-md-3.label-control Avatar
                   .col-md-9
@@ -44,39 +47,45 @@ section
                 .form-group.row
                   label.col-md-3.label-control Email
                   .col-md-9
-                    input.form-control placeholder="Email" tyep="text"
+                    = text_input f, :email, class: "form-control", placeholder: "Email", disabled: true
                 .form-group.row
                   label.col-md-3.label-control Phone
                   .col-md-9
-                    input.form-control placeholder="Contact Number" tyep="text"
+                    = text_input f, :phone, class: "form-control", placeholder: "Contact Number"
+                    = error_tag f, :phone
                 .form-group.row
                   label.col-md-3.label-control Bio
                   .col-md-9
-                    textarea.form-control.col-md-12 rows="4" name="bio" placeholder="Biography"
+                    = textarea f, :bio, class: "form-control", placeholder: "Biography", rows: "4"
+                    = error_tag f, :bio
                 h4.form-section
                   i.ft-share-2
                   | Social
                 .form-group.row
                   label.col-md-3.label-control Facebook
                   .col-md-9
-                    input.form-control placeholder="https://facebook.com/" tyep="text"
+                    = text_input f, :facebook, class: "form-control", placeholder: "https://facebook.com/"
+                    = error_tag f, :facebook
                 .form-group.row
                   label.col-md-3.label-control Linked in
                   .col-md-9
-                    input.form-control placeholder="https://linkedin.com/" tyep="text"
+                    = text_input f, :linkedin, class: "form-control", placeholder: "https://linkedin.com/"
+                    = error_tag f, :linkedin
                 .form-group.row
                   label.col-md-3.label-control Github
                   .col-md-9
-                    input.form-control placeholder="https://github.com/" tyep="text"
+                    = text_input f, :github, class: "form-control", placeholder: "https://github.com/"
+                    = error_tag f, :github
                 .form-group.row
                   label.col-md-3.label-control Bitbucket
                   .col-md-9
-                    input.form-control placeholder="https://bitbucket.com/" tyep="text"
+                    = text_input f, :bitbucket, class: "form-control", placeholder: "https://bitbucket.com/"
+                    = error_tag f, :bitbucket
               .form-actions.right
-                button.btn.btn-warning.mr-1 type="button"
+                = link to: root_path(@conn, :index), class: "btn btn-warning mr-1" do
                   i.ft-x
                   | &nbsp;Cancel
-                button.btn.btn-primary type="submit"
+                = submit class: "btn btn-primary" do
                   i.ft-check-square
                   | &nbsp;Save
 

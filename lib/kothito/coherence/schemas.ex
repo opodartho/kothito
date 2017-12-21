@@ -39,8 +39,20 @@ defmodule Kothito.Coherence.Schemas do
     @user_schema.changeset @user_schema.__struct__, %{}
   end
 
+  def change_profile(%Kothito.Coherence.User{} = user, params) do
+    @user_schema.changeset user, params, :profile
+  end
+
+  def change_profile(%Kothito.Coherence.User{} = user) do
+    change_profile(user, %{})
+  end
+
   def update_user(user, params) do
     @repo.update change_user(user, params)
+  end
+
+  def update_profile(user, params) do
+    @repo.update change_profile(user, params)
   end
 
   def create_user(params) do
