@@ -34,7 +34,7 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.fixed-top.navbar-semi
           li.dropdown.dropdown-user.nav-item
             a.dropdown-toggle.nav-link.dropdown-user-link data-toggle="dropdown" href="#" 
               span.avatar.avatar-online
-                = img_tag(static_path(@conn, "/images/portrait/small/avatar-s-13.png"))
+                = img_tag(current_avatar(@conn, :small))
                   i
               span.user-name = current_user(@conn).username
             .dropdown-menu.dropdown-menu-right

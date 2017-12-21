@@ -16,7 +16,7 @@ defmodule Kothito.AvatarUploader do
   end
 
   def transform(:small, _) do
-    {:convert, "-strip -thumbnail 115x115^ -gravity center -extent 115x155 -format png", :png}
+    {:convert, "-strip -thumbnail 115x115^ -gravity center -extent 115x115 -format png", :png}
   end
   # Override the persisted filenames:
   # def filename(version, _) do
@@ -25,7 +25,7 @@ defmodule Kothito.AvatarUploader do
 
   # Override the storage directory:
   def storage_dir(version, {_file, scope}) do
-    "priv/static/uploads/avatars/#{scope.id}/#{version}"
+    "uploads/avatars/#{scope.id}/#{version}"
   end
 
   # Provide a default URL if there hasn't been a file uploaded
