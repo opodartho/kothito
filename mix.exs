@@ -20,7 +20,7 @@ defmodule Kothito.Mixfile do
   def application do
     [
       mod: {Kothito.Application, []},
-      extra_applications: [:coherence, :logger, :runtime_tools]
+      extra_applications: [:coherence, :logger, :runtime_tools, :arc_ecto]
     ]
   end
 
@@ -42,6 +42,7 @@ defmodule Kothito.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:coherence, "~> 0.5"},
+      {:arc_ecto, "~> 0.7.0"},
       {:phoenix_slime, github: "slime-lang/phoenix_slime"}
     ]
   end

@@ -11,7 +11,7 @@ section
                   i.ft-maximize
         .card-content.collapse.show
           .card-body
-            = form_for @changeset, profile_path(@conn, :update, @user), [as: :user, class: "form form-horizontal"], fn f->
+            = form_for @changeset, profile_path(@conn, :update, @user), [as: :user, multipart: true, class: "form form-horizontal"], fn f->
               .form-body
                 h4.form-section
                   i.ft-user
@@ -39,7 +39,7 @@ section
                   label.col-md-3.label-control Avatar
                   .col-md-9
                     label.custom-file.center-block.button
-                      input.custom-file-input type="file"
+                      = file_input f, :avatar, class: "custom-file-input"
                       span.custom-file-control
                 h4.form-section
                   i.ft-mail

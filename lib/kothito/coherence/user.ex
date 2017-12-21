@@ -2,6 +2,7 @@ defmodule Kothito.Coherence.User do
   @moduledoc false
   use Ecto.Schema
   use Coherence.Schema
+  use Arc.Ecto.Schema
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
   @foreign_key_type Ecto.UUID
@@ -18,6 +19,7 @@ defmodule Kothito.Coherence.User do
     field :linkedin, :string
     field :github, :string
     field :bitbucket, :string
+    field :avatar, Kothito.AvatarUploader.Type
     coherence_schema()
 
     timestamps()
@@ -48,6 +50,7 @@ defmodule Kothito.Coherence.User do
   defp personal_changeset(model, params) do
     model
     |> cast(params, ~w(firstname lastname nickname))
+    |> cast_attachments(params, [:avatar])
     |> validate_required([:firstname, :lastname])
   end
 
