@@ -1,4 +1,5 @@
 defmodule Kothito.Coherence.Schemas do
+  @moduledoc false
 
   use Coherence.Config
 
@@ -111,7 +112,7 @@ defmodule Kothito.Coherence.Schemas do
       @repo.delete struct
     end
   end
-  
+
   def query_by(schema, opts) do
     Enum.reduce opts, schema, fn {k, v}, query ->
       where(query, [b], field(b, ^k) == ^v)

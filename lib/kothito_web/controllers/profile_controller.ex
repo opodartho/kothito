@@ -1,6 +1,7 @@
 defmodule KothitoWeb.ProfileController do
   use KothitoWeb, :controller
-  import Kothito.Coherence.Schemas, only: [list_user: 0, get_user: 1, change_profile: 1, update_profile: 2]
+  import Kothito.Coherence.Schemas,
+    only: [list_user: 0, get_user: 1, change_profile: 1, update_profile: 2]
 
   def index(conn, _params) do
     conn

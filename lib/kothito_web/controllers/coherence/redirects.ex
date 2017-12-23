@@ -48,7 +48,10 @@ defmodule Coherence.Redirects do
   # Add function overrides below
 
   # Example usage
-  # Uncomment the following line to return the user to the login form after logging out
-  # def session_delete(conn, _), do: redirect(conn, to: session_path(conn, :new))
+  # Uncomment the following line to return the user to the login
+  # form after logging out
+  # def session_delete(conn, _) do
+  #   redirect(conn, to: session_path(conn, :new))
+  # end
 
 end

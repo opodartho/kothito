@@ -43,7 +43,8 @@ defmodule Kothito.Mixfile do
       {:cowboy, "~> 1.0"},
       {:coherence, "~> 0.5"},
       {:arc_ecto, "~> 0.7.0"},
-      {:phoenix_slime, github: "slime-lang/phoenix_slime"}
+      {:phoenix_slime, github: "slime-lang/phoenix_slime"},
+      {:credo, "~> 0.8", only: [:dev, :test]}
     ]
   end
 

@@ -1,5 +1,7 @@
 defmodule Kothito.Application do
+  @moduledoc false
   use Application
+  alias KothotoWeb.Endpoint
 
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
@@ -12,7 +14,8 @@ defmodule Kothito.Application do
       supervisor(Kothito.Repo, []),
       # Start the endpoint when the application starts
       supervisor(KothitoWeb.Endpoint, []),
-      # Start your own worker by calling: Kothito.Worker.start_link(arg1, arg2, arg3)
+      # Start your own worker by calling:
+      #   Kothito.Worker.start_link(arg1, arg2, arg3)
       # worker(Kothito.Worker, [arg1, arg2, arg3]),
     ]
 
@@ -25,7 +28,7 @@ defmodule Kothito.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    KothitoWeb.Endpoint.config_change(changed, removed)
+    Endpoint.config_change(changed, removed)
     :ok
   end
 end

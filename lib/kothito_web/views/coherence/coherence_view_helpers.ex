@@ -29,7 +29,6 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
   * create links for the new session page `:new_session`
   * create links for your layout template `:layout`
 
-
   Defaults are provided based on the options configured for Coherence.
   However, the defaults can be overridden by passing the following options.
 
@@ -53,16 +52,19 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
   ### Disable links
 
   If you set an option to false, the link will not be shown. For example, to
-  disable the register link on the layout, use the following in your layout template:
+  disable the register link on the layout, use the following in your layout
+  template:
 
       coherence_links(conn, :layout, register: false)
 
   ## Examples
 
       coherence_links(conn, :new_session)
-      Generates: #{@recover_link}  #{@unlock_link} #{@register_link} #{@confirm_link}
+      Generates: #{@recover_link}  #{@unlock_link}
+                 #{@register_link} #{@confirm_link}
 
-      coherence_links(conn, :new_session, recover: "Password reset", register: false
+      coherence_links(conn, :new_session,
+      recover: "Password reset", register: false
       Generates: Password reset  #{@unlock_link}
 
       coherence_links(conn, :layout)             # when logged in
@@ -79,7 +81,7 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
     register_link = Keyword.get opts, :register, @register_link
     confirm_link  = Keyword.get opts, :confirm, @confirm_link
 
-    user_schema = Coherence.Config.user_schema
+    user_schema = Config.user_schema
     [
       recover_link(conn, user_schema, recover_link),
       unlock_link(conn, user_schema, unlock_link),
@@ -100,9 +102,23 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
     if Coherence.logged_in?(conn) do
       signout_link(conn, signout, signout_class)
     else
-      signin_link = link(signin, to: coherence_path(@helpers, :session_path, conn, :new), class: opts[:class])
+      signin_link =
+        link(
+          signin,
+          to: coherence_path(@helpers, :session_path, conn, :new),
+          class: opts[:class]
+        )
       if Config.has_option(:registerable) && register do
-        [content_tag(list_tag, link(register, to: coherence_path(@helpers, :registration_path, conn, :new))), signin_link]
+        [
+          content_tag(
+            list_tag,
+            link(
+              register,
+              to: coherence_path(@helpers, :registration_path, conn, :new)
+            )
+          ),
+          signin_link
+        ]
       else
         signin_link
       end
@@ -137,12 +153,20 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
   @spec register_link(conn, module, false | String.t, String.t) :: [any] | []
   def register_link(_conn, _user_schema, false, _classes), do: []
   def register_link(conn, user_schema, text, classes) do
-    if user_schema.registerable?, do: [register_link(conn, text, classes)], else: []
+    if user_schema.registerable? do
+      [register_link(conn, text, classes)]
+    else
+      []
+    end
   end
 
   @spec register_link(conn, String.t, String.t) :: tuple
   def register_link(conn, text \\ @register_link, classes), do:
-    link(text, to: coherence_path(@helpers, :registration_path, conn, :new), class: classes)
+  link(
+    text,
+    to: coherence_path(@helpers, :registration_path, conn, :new),
+    class: classes
+  )
 
   @spec unlock_link(conn, module, false | String.t) :: [any] | []
   def unlock_link(_conn, _user_schema, false), do: []
@@ -161,7 +185,12 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
 
   @spec signout_link(conn, String.t, String.t) :: tuple
   def signout_link(conn, text \\ @signout_link, signout_class \\ "") do
-    link(text, to: coherence_path(@helpers, :session_path, conn, :delete), method: :delete, class: signout_class)
+    link(
+      text,
+      to: coherence_path(@helpers, :session_path, conn, :delete),
+      method: :delete,
+      class: signout_class
+    )
   end
 
   @spec confirmation_link(conn, module, false | String.t) :: [any] | []
@@ -193,14 +222,5 @@ defmodule KothitoWeb.Coherence.ViewHelpers do
   @spec logged_in?(conn) :: boolean
   def logged_in?(conn) do
     Coherence.logged_in?(conn)
-  end
-
-
-  defp profile_link(current_user, conn) do
-    if Config.user_schema.registerable? do
-      link current_user.name, to: coherence_path(@helpers, :registration_path, conn, :show)
-    else
-      current_user.name
-    end
   end
 end

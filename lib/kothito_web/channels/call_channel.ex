@@ -1,4 +1,5 @@
 defmodule KothitoWeb.CallChannel do
+  @moduledoc false
   use Phoenix.Channel
 
   def join("call", _auth_msg, socket) do
