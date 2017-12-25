@@ -1,0 +1,40 @@
+.sidebar-left.sidebar-fixed
+  .sidebar
+    .sidebar-content.card.d-none.d-lg-block
+      .card-body.chat-fixed-search
+        fieldset.form-group.position-relative.has-icon-left.m-0
+          input.form-control placeholder="Search user" type="text"
+          .form-control-position
+            i.ft-search
+      .list-group.position-relative
+        .users-list-padding.media-list
+          a.media.border-0 href="#"
+            .media-left.pr-1
+              span.avatar.avatar-md.avatar-online
+                img.media-object.rounded-circle src=""
+                i
+            .media-body.w-100
+              h6.list-group-item-heading
+                | Zahidul Haque
+                .font-small-3.float-right.primary 4:14 AM
+              p.list-group-item-text.text-mute.mb-0
+                i.ft-check.primary.font-small-2
+                | &nbsp;Okay
+                span.float-right.primary
+                  span.badge.badge-pill.badge-primary 12
+.content-right
+  .content-header.row
+    .chats
+      .chat
+  .content-body
+    section.chat-app-window
+    section.chat-app-form
+      form.chat-app-input.d-flex
+        fieldset.form-group.position-relative.has-icon-left.col-10.m-0
+          .form-control-position
+            i.fa.fa-smile-o
+          input.form-control placeholder="Type your message" type="text"
+        fieldset.form-group.position-relative.has-icon-left.col-2.m-0
+          button.btn.btn-primary type="button"
+            i.fa.fa-paper-plane-o
+            | &nbsp; Send

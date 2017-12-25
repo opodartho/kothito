@@ -652,3 +652,54 @@ body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped {
   }
 }
 
+.sidebar {
+  position : relative;
+  width : 100%;
+}
+@media (min-width: 992px) {
+  .sidebar {
+    vertical-align : top;
+    width : 300px;
+  }
+}
+
+.sidebar-fixed {
+  position : fixed;
+  height : 100%;
+  overflow : scroll;
+}
+
+@media (min-width: 992px) {
+  .sidebar-left {
+    float : left;
+  }
+  .sidebar-right {
+    float : right;
+  }
+}
+
+footer.footer {
+  padding : 0.4rem;
+}
+
+footer.navbar-shadow {
+  -webkit-box-shadow : 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+          box-shadow : 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+footer.navbar-border {
+  border-top : 1px solid #E4E7ED;
+}
+
+footer.footer-transparent {
+  border : none;
+}
+
+footer.footer-light {
+  background : #FFFFFF;
+}
+
+footer.footer-dark {
+  background : #404E67;
+  color : #FFFFFF;
+}

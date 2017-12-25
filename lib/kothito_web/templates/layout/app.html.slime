@@ -9,14 +9,12 @@ html lang="en"
     title Kothito!
     link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
 
-  body.vertical-layout.vertical-menu.2-columns.menu-expanded.fixed-navbar data-open="click" data-menu="vertical-menu" data-col="2-columns"
+  body.vertical-layout.vertical-menu.2-columns.menu-expanded.chat-application.fixed-navbar data-open="click" data-menu="vertical-menu" data-col="2-columns"
     = render "_navbar.html", assigns
     = render "_sidebar.html", assigns
 
     .app-content.content
-      .content-wrapper
-        .content-body
-          = render @view_module, @view_template, assigns
+      = render @view_module, @view_template, assigns
 
     script src="#{static_path(@conn, "/js/vendor.js")}"
     script src="#{static_path(@conn, "/js/app.js")}"
