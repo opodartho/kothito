@@ -11,12 +11,26 @@ defmodule Seed do
         password_confirmation: "secret"}
     )
     |> Kothito.Repo.insert!
+    |> update_profile(firstname, lastname)
+  end
+
+  defp update_profile(user, firstname, lastname) do
+    Kothito.Coherence.Schemas.update_profile(
+      user,
+      %{
+        firstname: firstname,
+        lastname: lastname,
+        phone: Faker.Phone.EnGb.mobile_number,
+        bio: Faker.Lorem.sentence(%Range{first: 1, last: 10})
+      }
+    )
   end
 
   defp username(firstname, lastname) do
     firstname <> lastname |> String.downcase
   end
 
+  # TODO: make avatar upload from seed
   defp avatar(username) do
     %Plug.Upload{
       content_type: "image/png",
