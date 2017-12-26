@@ -2,9 +2,9 @@
   .card.profile-card-with-stats.box-shadow-2
     .text-center
       .card-body
-        = img_tag static_path(@conn, "/images/portrait/medium/avatar-m-5.png"), alt: "%{@user.name}", class: "rounded-circle height-150"
+        = img_tag avatar(@user, :medium), alt: "%{@user.name}", class: "rounded-circle height-150"
       .card-body
-        h4.card-title = @user.name
+        h4.card-title = fullname(@user)
         h6.card-subtitle.text-muted Technical Lead
       .text-center
         a.btn.btn-social-icon.mr-1.mb-1.btn-outline-facebook href="#"
