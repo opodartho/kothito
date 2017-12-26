@@ -41,7 +41,7 @@ defmodule KothitoWeb.Router do
     resources "/users", ProfileController, only: [:index], as: :user
     resources "/chat", ChatController, only: [:index]
     get "/call", CallController, :index
-    get "/", PageController, :index, as: :root
+    get "/", ChatController, :index, as: :root
   end
   # Other scopes may use custom stacks.
   # scope "/api", KothitoWeb do
