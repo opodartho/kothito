@@ -58,6 +58,6 @@ defmodule KothitoWeb.Router do
   defp put_user_token(conn, _) do
     token = Phoenix.Token.sign(conn, "user_id", conn.assigns.current_user.id)
     conn
-    |> assign(:user, token)
+    |> assign(:user_token, token)
   end
 end
