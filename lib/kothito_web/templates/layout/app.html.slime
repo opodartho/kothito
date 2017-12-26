@@ -18,6 +18,12 @@ html lang="en"
         .content-body
           = render @view_module, @view_template, assigns
 
+    footer.footer.fixed-bottom.footer-dark.navbar-border
+      p.clearfix.blue-grey.lighten-2.text-sm-center.mb-0.px-2.content
+        span.float-md-left.d-block.d-md-inline-block
+          | Copyright  © 2017 &nbsp;
+          a.text-bold-800.grey.darken-2 href="javascript:void(0);" KOTHITO
+          |  , All reghts reserved.
     script
       = raw "window.userToken = '#{@user}';"
       = raw "window.user = '#{@current_user.id}';"
