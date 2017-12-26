@@ -7,7 +7,7 @@
           .form-control-position
             i.ft-search
       .list-group.position-relative
-        .users-list-padding.media-list
+        #users-list.users-list-padding.media-list
           = for user <- @users do
             = render("user.html", conn: @conn, user: user)
 .content-right
@@ -21,7 +21,7 @@
         fieldset.form-group.position-relative.has-icon-left.col-10.m-0
           .form-control-position
             i.fa.fa-smile-o
-          input.form-control placeholder="Type your message" type="text"
+          input.form-control#chat-input placeholder="Type your message" type="text"
         fieldset.form-group.position-relative.has-icon-left.col-2.m-0
           button.btn.btn-primary type="button"
             i.fa.fa-paper-plane-o

@@ -1,4 +1,4 @@
-a.media.border-0 href="#"
+a.media.border-0 href="#" data-user="#{@user.id}"
   .media-left.pr-1
     span.avatar.avatar-md.avatar-online
       = avatar(@user)

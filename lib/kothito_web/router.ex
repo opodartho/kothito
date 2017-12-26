@@ -18,6 +18,8 @@ defmodule KothitoWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug Coherence.Authentication.Session, protected: true
+    plug :put_current_user
+    plug :put_user_token
   end
 
   scope "/" do
@@ -47,4 +49,15 @@ defmodule KothitoWeb.Router do
   # scope "/api", KothitoWeb do
   #   pipe_through :api
   # end
+
+  defp put_current_user(conn, _) do
+    current_user = Coherence.current_user(conn)
+    conn |> assign(:current_user, current_user)
+  end
+
+  defp put_user_token(conn, _) do
+    token = Phoenix.Token.sign(conn, "user_id", conn.assigns.current_user.id)
+    conn
+    |> assign(:user, token)
+  end
 end

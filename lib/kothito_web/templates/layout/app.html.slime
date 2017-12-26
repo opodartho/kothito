@@ -18,5 +18,8 @@ html lang="en"
         .content-body
           = render @view_module, @view_template, assigns
 
+    script
+      = raw "window.userToken = '#{@user}';"
+      = raw "window.user = '#{@current_user.id}';"
     script src="#{static_path(@conn, "/js/vendor.js")}"
     script src="#{static_path(@conn, "/js/app.js")}"
