@@ -9,6 +9,10 @@ defmodule KothitoWeb.ChatView do
   end
 
   def name(user) do
-    user.firstname <> " " <> user.lastname
+    try do
+      user.firstname <> " " <> user.lastname
+    rescue
+      _-> user.username
+    end
   end
 end
