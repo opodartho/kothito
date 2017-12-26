@@ -12,6 +12,11 @@ defmodule Kothito.Coherence.Schemas do
     @repo.all @user_schema
   end
 
+  def list_user_except(id) do
+    query = u in @user_schema |> from(where: u.id != ^id)
+    @repo.all query
+  end
+
   def get_by_user(opts) do
     @repo.get_by @user_schema, opts
   end

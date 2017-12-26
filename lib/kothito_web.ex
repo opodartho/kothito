@@ -23,6 +23,7 @@ defmodule KothitoWeb do
       import Plug.Conn
       import KothitoWeb.Router.Helpers
       import KothitoWeb.Gettext
+      import Coherence, only: [current_user: 1]
     end
   end
 
