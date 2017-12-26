@@ -9,7 +9,7 @@ html lang="en"
     title Kothito!
     link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
 
-  body.vertical-layout.vertical-menu.2-columns.menu-expanded.fixed-navbar data-open="click" data-menu="vertical-menu" data-col="2-columns" class="#{page(@conn, "dashboard")}"
+  body.vertical-layout.vertical-menu.2-columns.menu-expanded.fixed-navbar data-open="click" data-menu="vertical-menu" data-col="2-columns" class="#{page(@conn, "dashboard")}" data-open="click"
     = render "_navbar.html", assigns
     = render "_sidebar.html", assigns
 

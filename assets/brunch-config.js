@@ -48,7 +48,7 @@ exports.config = {
 
   modules: {
     autoRequire: {
-      "js/app.js": ["js/app"],
+      "js/app.js": ["js/menu", "js/app"],
       "js/auth.js": ["js/auth/index"]
     }
   },

@@ -8,7 +8,6 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.fixed-top.navbar-semi
         li.nav-item
           a.navbar-brand href="/" 
             =img_tag static_path(@conn, "/images/logo.png"), alt: "Kothito", class: "brand-logo"
-              h2.brand-text Kothito
           li.nav-item.d-md-none
             a.nav-link.open-navbar-container data-target="#navbar-mobile" data-toggle="collapse" 
               i.fa.fa-ellipsis-v

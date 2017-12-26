@@ -1,143 +1,228 @@
-// Brunch automatically concatenates all files in your
-// watched paths. Those paths can be configured at
-// config.paths.watched in "brunch-config.js".
-//
-// However, those files will only be executed if
-// explicitly imported. The only exception are files
-// in vendor, which are never wrapped in imports and
-// therefore are always executed.
-
-// Import dependencies
-//
-// If you no longer want to use a dependency, remember
-// to also remove its path from "config.paths.watched".
-import "phoenix_html"
-import AdapterJS from "adapterjs"
-
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
-
-import socket from "./socket"
-
-let channel = socket.channel("call", {})
-
-channel.join()
-  .receive("ok", () => { console.log("Successfully joined call channel")})
-  .receive("error", () => { console.log("Unable to join")})
-
-let localStream, peerConnection;
-let localVideo = document.getElementById("localVideo");
-let remoteVideo = document.getElementById("remoteVideo");
-let connectButton = document.getElementById("connect");
-let callButton = document.getElementById("call");
-let hangupButton = document.getElementById("hangup");
+var $html = $('html');
+var $body = $('body');
 
 
-AdapterJS.webRTCReady(function(isUsingPlugin) {
-  hangupButton.disabled = true;
-  callButton.disabled = true;
-  hangupButton.onclick = () => {
-    console.log("Ending call");
-    peerConnection.close();
-    peerConnection = null;
-    hangupButton.disabled = true;
-    connectButton.disabled = false;
-    callButton.disabled = true;
-  };
+$(window).on('load',function(){
+    var rtl;
+    var compactMenu = false; // Set it to true, if you want default menu to be compact
 
-  connectButton.onclick = () => {
-    console.log("Requesting local stream")
-    getUserMedia({audio:true, video: {width: 1280, height: 720}}, gotStream, error => {
-      console.log("getUserMedia error: ", error)
-    })
-  }
+    if($('html').data('textdirection') == 'rtl'){
+        rtl = true;
+    }
 
-  callButton.onclick = () => {
-    callButton.disabled = true;
-    console.log("Starting call");
-    peerConnection.createOffer(gotLocalDescription, (error) => {
-      console.log(error.name + ": " + error.message);
-    })
-  }
+    setTimeout(function(){
+        $html.removeClass('loading').addClass('loaded');
+    }, 1200);
 
-  let gotStream = (stream) => {
-    console.log("Received local stream")
-    attachMediaStream(localVideo, stream)
-    localStream = stream;
-    setupPeerConnection();
-  }
+    $.app.menu.init(compactMenu);
 
-  let gotLocalDescription = (description) => {
-    peerConnection.setLocalDescription(description, () => {
-      channel.push("message", { body: JSON.stringify({
-              "sdp": peerConnection.localDescription
-          })});
-    }, (error) => {
-      console.log(error.name + ": " + error.message);
-    });
-    console.log("Offer from localPeerConnection: \n" + description.sdp);
-  }
-
-  let gotRemoteDescription = (description) => {
-    console.log("Answer from remotePeerConnection: \n" + description.sdp);
-    peerConnection.setRemoteDescription(new RTCSessionDescription(description.sdp));
-    peerConnection.createAnswer(gotLocalDescription, (error) => {
-      console.log(error.name + ": " + error.message);
-    });
-  }
-
-  let setupPeerConnection = () => {
-    connectButton.disabled = true;
-    callButton.disabled = false;
-    hangupButton.disabled = false;
-    console.log("Waiting for call");
-
-    let servers = {
-      "iceServers": [{
-        "url": "stun:stun.example.org"
-      }]
+    // Navigation configurations
+    var config = {
+        speed: 300 // set speed to expand / collpase menu
     };
-
-    peerConnection = new RTCPeerConnection(servers);
-    console.log("Created local peer connection");
-    peerConnection.onicecandidate = gotLocalIceCandidate;
-    peerConnection.ontrack = gotRemoteStream;
-    peerConnection.addStream(localStream);
-    console.log("Added localStream to localPeerConnection");
-  }
-
-  let gotRemoteStream = (event) => {
-    attachMediaStream(remoteVideo, event.stream);
-    console.log("Received remote stream");
-  }
-
-  let gotLocalIceCandidate = (event) => {
-    if (event.candidate) {
-      console.log("Local ICE candidate: \n" + event.candidate.candidate);
-      channel.push("message", {body: JSON.stringify({
-          "candidate": event.candidate
-      })});
+    if($.app.nav.initialized === false){
+        $.app.nav.init(config);
     }
-  }
 
-  let gotRemoteIceCandidate = (event) => {
-    callButton.disabled = true;
-    if(event.candidate) {
-      peerConnection.addIceCandidate(new RTCIceCandidate(event.candidate));
-      console.log("Remote ICE candidate: \n " + event.candidate.candidate);
+    Unison.on('change', function(bp) {
+        $.app.menu.change();
+    });
+
+    // Tooltip Initialization
+    $('[data-toggle="tooltip"]').tooltip({
+        container:'body'
+    });
+
+    // Top Navbars - Hide on Scroll
+    if ($(".navbar-hide-on-scroll").length > 0) {
+        $(".navbar-hide-on-scroll.fixed-top").headroom({
+          "offset": 205,
+          "tolerance": 5,
+          "classes": {
+              // when element is initialised
+            initial : "headroom",
+            // when scrolling up
+            pinned : "headroom--pinned-top",
+            // when scrolling down
+            unpinned : "headroom--unpinned-top",
+          }
+        });
+        // Bottom Navbars - Hide on Scroll
+        $(".navbar-hide-on-scroll.fixed-bottom").headroom({
+          "offset": 205,
+          "tolerance": 5,
+          "classes": {
+              // when element is initialised
+            initial : "headroom",
+            // when scrolling up
+            pinned : "headroom--pinned-bottom",
+            // when scrolling down
+            unpinned : "headroom--unpinned-bottom",
+          }
+        });
     }
-  }
 
-  channel.on("message", payload => {
-    let message = JSON.parse(payload.body);
-    if(message.sdp){
-      gotRemoteDescription(message);
-    } else {
-      gotRemoteIceCandidate(message);
+    // Toggle fullscreen
+    $('a[data-action="expand"]').on('click',function(e){
+        e.preventDefault();
+        $(this).closest('.card').find('[data-action="expand"] i').toggleClass('ft-maximize ft-minimize');
+        $(this).closest('.card').toggleClass('card-fullscreen');
+    });
+
+    // Add open class to parent list item if subitem is active except compact menu
+    var menuType = $body.data('menu');
+    if(menuType != 'horizontal-menu' && compactMenu === false ){
+        if( $body.data('menu') == 'vertical-menu-modern' ){
+            if( localStorage.getItem("menuLocked") === "true"){
+                $(".main-menu-content").find('li.active').parents('li').addClass('open');
+            }
+        }
+        else{
+            $(".main-menu-content").find('li.active').parents('li').addClass('open');
+        }
     }
-  })
+    if(menuType == 'horizontal-menu'){
+        $(".main-menu-content").find('li.active').parents('li:not(.nav-item)').addClass('open');
+        $(".main-menu-content").find('li.active').parents('li').addClass('active');
+    }
 
-})
+    //card heading actions buttons small screen support
+    $(".heading-elements-toggle").on("click",function(){
+        $(this).parent().children(".heading-elements").toggleClass("visible");
+    });
+
+    $('.nav-link-search').on('click',function(){
+        var $this = $(this),
+        searchInput = $(this).siblings('.search-input');
+
+        if(searchInput.hasClass('open')){
+            searchInput.removeClass('open');
+        }
+        else{
+            searchInput.addClass('open');
+        }
+    });
+});
+
+
+$(document).on('click', '.menu-toggle, .modern-nav-toggle', function(e) {
+    e.preventDefault();
+
+    // Toggle menu
+    $.app.menu.toggle();
+
+    setTimeout(function(){
+        $(window).trigger( "resize" );
+    },200);
+
+    if($('#collapsed-sidebar').length > 0){
+        setTimeout(function(){
+            if($body.hasClass('menu-expanded') || $body.hasClass('menu-open')){
+                $('#collapsed-sidebar').prop('checked', false);
+            }
+            else{
+                $('#collapsed-sidebar').prop('checked', true);
+            }
+        },1000);
+    }
+
+    return false;
+});
+
+/*$('.modern-nav-toggle').on('click',function(){
+    var $this = $(this),
+    icon = $this.find('.toggle-icon').attr('data-ticon');
+
+    if(icon == 'ft-toggle-right'){
+        $this.find('.toggle-icon').attr('data-ticon','ft-toggle-left')
+        .removeClass('ft-toggle-right').addClass('ft-toggle-left');
+    }
+    else{
+        $this.find('.toggle-icon').attr('data-ticon','ft-toggle-right')
+        .removeClass('ft-toggle-left').addClass('ft-toggle-right');
+    }
+
+    $.app.menu.toggle();
+});*/
+
+$(document).on('click', '.open-navbar-container', function(e) {
+
+    var currentBreakpoint = Unison.fetch.now();
+
+    // Init drilldown on small screen
+    $.app.menu.drillDownMenu(currentBreakpoint.name);
+
+    // return false;
+});
+
+$(document).on('click', '.main-menu-footer .footer-toggle', function(e) {
+    e.preventDefault();
+    $(this).find('i').toggleClass('pe-is-i-angle-down pe-is-i-angle-up');
+    $('.main-menu-footer').toggleClass('footer-close footer-open');
+    return false;
+});
+
+// Add Children Class
+$('.navigation').find('li').has('ul').addClass('has-sub');
+
+$('.carousel').carousel({
+  interval: 2000
+});
+
+// Page full screen
+$('.nav-link-expand').on('click', function(e) {
+    if (typeof screenfull != 'undefined'){
+        if (screenfull.enabled) {
+            screenfull.toggle();
+        }
+    }
+});
+if (typeof screenfull != 'undefined'){
+    if (screenfull.enabled) {
+        $(document).on(screenfull.raw.fullscreenchange, function(){
+            if(screenfull.isFullscreen){
+                $('.nav-link-expand').find('i').toggleClass('ft-minimize ft-maximize');
+            }
+            else{
+                $('.nav-link-expand').find('i').toggleClass('ft-maximize ft-minimize');
+            }
+        });
+    }
+}
+
+$(document).on('click', '.mega-dropdown-menu', function(e) {
+    e.stopPropagation();
+});
+
+// Update manual scroller when window is resized
+$(window).resize(function() {
+    $.app.menu.manualScroller.updateHeight();
+});
+
+// TODO : Tabs dropdown fix, remove this code once fixed in bootstrap 4.
+$('.nav.nav-tabs a.dropdown-item').on('click',function(){
+    var $this = $(this),
+    href = $this.attr('href');
+    var tabs = $this.closest('.nav');
+    tabs.find('.nav-link').removeClass('active');
+    $this.closest('.nav-item').find('.nav-link').addClass('active');
+    $this.closest('.dropdown-menu').find('.dropdown-item').removeClass('active');
+    $this.addClass('active');
+    tabs.next().find(href).siblings('.tab-pane').removeClass('active in').attr('aria-expanded',false);
+    $(href).addClass('active in').attr('aria-expanded','true');
+});
+
+$('#sidebar-page-navigation').on('click', 'a.nav-link', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var $this = $(this),
+    href= $this.attr('href');
+    var offset = $(href).offset();
+    var scrollto = offset.top - 80; // minus fixed header height
+    $('html, body').animate({scrollTop:scrollto}, 0);
+    setTimeout(function(){
+        $this.parent('.nav-item').siblings('.nav-item').children('.nav-link').removeClass('active');
+        $this.addClass('active');
+    }, 100);
+});
 
