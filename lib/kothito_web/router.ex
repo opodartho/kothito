@@ -12,7 +12,7 @@ defmodule KothitoWeb.Router do
   end
 
   pipeline :protected do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "modal"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
@@ -42,6 +42,7 @@ defmodule KothitoWeb.Router do
     resources "/profile", ProfileController, only: [:edit, :update]
     resources "/users", ProfileController, only: [:index], as: :user
     resources "/chat", ChatController, only: [:index]
+    resources "/rooms", RoomController, only: [:new]
     get "/call", CallController, :index
     get "/", ChatController, :index, as: :root
   end

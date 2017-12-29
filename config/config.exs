@@ -17,6 +17,11 @@ config :kothito, KothitoWeb.Endpoint,
   pubsub: [name: Kothito.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Configures Custom media type for modal
+config :mime, :types, %{
+  "application/vnd.modal+js" => ["modal"]
+}
+
 # Configures Slime template engines for phoenix
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,

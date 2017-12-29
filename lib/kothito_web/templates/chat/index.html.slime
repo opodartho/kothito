@@ -2,7 +2,7 @@
   .sidebar
     .sidebar-content.card.d-none.d-lg-block
       .card-body.chat-fixed-search
-        button.btn.btn-danger.btn-block
+        a.btn.btn-danger.btn-block href="/rooms/new" data-modal="true"
           i.ft-user-plus
           | &nbsp;Channel / Direct
       .list-group.position-relative
