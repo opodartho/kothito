@@ -2,10 +2,9 @@
   .sidebar
     .sidebar-content.card.d-none.d-lg-block
       .card-body.chat-fixed-search
-        fieldset.form-group.position-relative.has-icon-left.m-0
-          input.form-control placeholder="Search user" type="text"
-          .form-control-position
-            i.ft-search
+        button.btn.btn-danger.btn-block
+          i.ft-user-plus
+          | &nbsp;Channel / Direct
       .list-group.position-relative
         #users-list.users-list-padding.media-list
           = for user <- @users do

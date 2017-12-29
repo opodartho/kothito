@@ -41,7 +41,7 @@ defmodule Seed do
 end
 Seed.insert_user("testuser@example.com", "Test", "User")
 
-for x <- 0..10 do
+for x <- 0..6 do
   Seed.insert_user(
     Faker.Internet.free_email,
     Faker.Name.first_name,
