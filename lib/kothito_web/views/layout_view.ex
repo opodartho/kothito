@@ -1,4 +1,3 @@
-require IEx
 defmodule KothitoWeb.LayoutView do
   use KothitoWeb, :view
   import Phoenix.Controller, only: [view_module: 1, action_name: 1]
