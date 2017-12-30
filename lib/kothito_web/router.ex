@@ -18,6 +18,8 @@ defmodule KothitoWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :put_request_format
+    plug :put_layout_formats, ["html", "modal"]
+    plug :put_modal_layout
     plug Coherence.Authentication.Session, protected: true
     plug :put_current_user
     plug :put_user_token
@@ -51,6 +53,12 @@ defmodule KothitoWeb.Router do
   # scope "/api", KothitoWeb do
   #   pipe_through :api
   # end
+
+  defp put_modal_layout(%{private: %{phoenix_format: "modal"}} = conn, _) do
+    conn |> put_layout({KothitoWeb.ModalView, :app})
+  end
+
+  defp put_modal_layout(conn, _), do: conn
 
   defp put_request_format(conn, _) do
     conn |> assign(:format, get_format(conn))

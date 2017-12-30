@@ -19,6 +19,7 @@ $(function(){
     // adding media type modal into url
     location = appendQueryString(location, {'_format': 'modal'})
     $.get(location, (data) => {
+      console.log(data)
       $(modalHolderSelector).html(data).
         find(modalSelector).modal()
     })

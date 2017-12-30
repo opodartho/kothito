@@ -24,6 +24,9 @@ html lang="en"
           | Copyright  © 2017 &nbsp;
           a.text-bold-800.grey.darken-2 href="javascript:void(0);" KOTHITO
           |  , All reghts reserved.
+
+    #modal-holder
+
     script
       = raw "window.userToken = '#{@user_token}';"
       = raw "window.user = '#{@current_user.id}';"
