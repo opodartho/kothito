@@ -1,1 +1,7 @@
-h3 = "Hello #{@format}!"
+.search-people.d-flex
+  fieldset.form-group.position-relative.has-icon-left.col-10.m-0.pl-0
+    .form-control-position
+      i.ft-users.font-medium-4
+    input.form-control.form-control-lg type="text" placeholder="Find or Invite People"
+  fieldset.fotm-group.position-relative.has-icon-left.col-2.m-0
+    button.btn.btn-info.btn-lg.btn-block type="button" Go

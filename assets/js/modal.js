@@ -21,7 +21,7 @@ $(function(){
     $.get(location, (data) => {
       console.log(data)
       $(modalHolderSelector).html(data).
-        find(modalSelector).modal()
+        find(modalSelector).modal({backdrop: 'static'})
     })
   })
 
