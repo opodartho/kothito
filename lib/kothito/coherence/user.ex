@@ -3,6 +3,7 @@ defmodule Kothito.Coherence.User do
   use Ecto.Schema
   use Coherence.Schema
   use Arc.Ecto.Schema
+  use ElasticSync.Index, index: "user"
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
   @foreign_key_type Ecto.UUID
@@ -23,6 +24,21 @@ defmodule Kothito.Coherence.User do
     coherence_schema()
 
     timestamps()
+  end
+
+  def to_search_document(record) do
+    Map.take(
+      record,
+      [
+        :username,
+        :email,
+        :firstname,
+        :lastname,
+        :nickname,
+        :phone,
+        :bio
+      ]
+    )
   end
 
   def changeset(model, params \\ %{}) do

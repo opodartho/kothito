@@ -14,6 +14,7 @@ defmodule KothitoWeb.Coherence.RegistrationController do
 
   alias Coherence.ControllerHelpers, as: Helpers
   alias Coherence.{Messages, Schemas}
+  alias ElasticSync.Repo, as: Elastic
 
   require Logger
 
@@ -56,6 +57,7 @@ defmodule KothitoWeb.Coherence.RegistrationController do
     |> Schemas.create
     |> case do
       {:ok, user} ->
+        user |> Elastic.insert
         conn
         |> send_confirmation(user, user_schema)
         |> redirect_or_login(user, params, Config.allow_unconfirmed_access_for)

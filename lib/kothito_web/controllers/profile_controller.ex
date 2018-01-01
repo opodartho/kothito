@@ -2,6 +2,7 @@ defmodule KothitoWeb.ProfileController do
   use KothitoWeb, :controller
   import Kothito.Coherence.Schemas,
     only: [list_user: 0, get_user: 1, change_profile: 1, update_profile: 2]
+  alias ElasticSync.Repo, as: Elastic
 
   def index(conn, _params) do
     conn
@@ -21,6 +22,7 @@ defmodule KothitoWeb.ProfileController do
     user = get_user(id)
     case update_profile(user, user_params) do
       {:ok, user} ->
+        user |> Elastic.update
         conn
         |> put_flash(:info, "Profile updated successfully")
         |> redirect(to: profile_path(conn, :edit, user))

@@ -20,7 +20,13 @@ defmodule Kothito.Mixfile do
   def application do
     [
       mod: {Kothito.Application, []},
-      extra_applications: [:coherence, :logger, :runtime_tools, :arc_ecto]
+      extra_applications: [
+        :coherence,
+        :logger,
+        :runtime_tools,
+        :arc_ecto,
+        :elastic_sync
+      ]
     ]
   end
 
@@ -43,6 +49,7 @@ defmodule Kothito.Mixfile do
       {:cowboy, "~> 1.0"},
       {:coherence, "~> 0.5"},
       {:arc_ecto, "~> 0.7.0"},
+      {:elastic_sync, github: "promptworks/elastic_sync"},
       {:phoenix_slime, github: "slime-lang/phoenix_slime"},
       {:credo, "~> 0.8", only: [:dev, :test]},
       {:faker, "~> 0.9", only: [:dev, :test]}
