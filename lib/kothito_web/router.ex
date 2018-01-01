@@ -25,22 +25,14 @@ defmodule KothitoWeb.Router do
     plug :put_user_token
   end
 
-  scope "/" do
-    pipe_through :browser
+  scope "/", KothitoWeb do
+    pipe_through :browser # Use the default browser stack
     coherence_routes()
   end
 
-  scope "/" do
+  scope "/", KothitoWeb do
     pipe_through :protected
     coherence_routes :protected
-  end
-
-  scope "/", KothitoWeb do
-    pipe_through :browser # Use the default browser stack
-  end
-
-  scope "/", KothitoWeb do
-    pipe_through :protected
 
     resources "/profile", ProfileController, only: [:edit, :update]
     resources "/users", ProfileController, only: [:index], as: :user
