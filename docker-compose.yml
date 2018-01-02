@@ -2,7 +2,7 @@ version: '2.2'
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.1.1
-    container_name: elasticsearch
+    container_name: kothito-elasticsearch-1
     environment:
       - cluster.name=kothito-cluster
       - bootstrap.memory_lock=true
@@ -19,7 +19,7 @@ services:
       - esnet
   elasticsearch2:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.1.1
-    container_name: elasticsearch2
+    container_name: kothito-elasticsearch-2
     environment:
       - cluster.name=kothito-cluster
       - bootstrap.memory_lock=true
@@ -31,6 +31,17 @@ services:
         hard: -1
     volumes:
       - esdata2:/usr/share/elasticsearch/data
+    networks:
+      - esnet
+  db:
+    image: postgres:10.1-alpine
+    container_name: kothito-db
+    restart: always
+    environment:
+      POSTGRES_USER: kothito
+      POSTGRES_PASSWORD: secret
+    ports:
+      - 5432:5432
     networks:
       - esnet
 
