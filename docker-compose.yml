@@ -36,12 +36,18 @@ services:
   db:
     image: postgres:10.1-alpine
     container_name: kothito-db
-    restart: always
     environment:
       POSTGRES_USER: kothito
       POSTGRES_PASSWORD: secret
     ports:
       - 5432:5432
+    networks:
+      - esnet
+  adminer:
+    image: adminer
+    container_name: kothito-adminer
+    ports:
+      - 8080:8080
     networks:
       - esnet
 
