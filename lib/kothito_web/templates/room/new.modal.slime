@@ -3,5 +3,15 @@
     .form-control-position
       i.ft-users.font-medium-4
     input.form-control.form-control-lg type="text" placeholder="Find or Invite People"
-  fieldset.fotm-group.position-relative.has-icon-left.col-2.m-0
+  fieldset.fotm-group.position-relative.has-icon-left.col-2.m-0.pr-0
     button.btn.btn-info.btn-lg.btn-block type="button" Go
+.row
+  .col-md-12
+    p.mt-2.text-muted.font-small-2.blue-grey Recent conversations
+  .col-md-12
+    ul.list-group
+      = for user <- @users do
+        li.list-group-item.border-left-0.border-right-0
+          => img_tag avatar(user, :small), class: "avatar rounded"
+          => content_tag :strong, user.username
+          = name(user)

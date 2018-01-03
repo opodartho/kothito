@@ -1,7 +1,16 @@
 defmodule KothitoWeb.RoomView do
   use KothitoWeb, :view
+  alias Kothito.AvatarUploader
 
-  # def render("new.modal", _) do
-  #   "<h3>Zahidul Haque</h3>"
-  # end
+  def avatar(user, version) do
+    AvatarUploader.url({user.avatar, user}, version)
+  end
+
+  def name(user) do
+    try do
+      user.firstname <> " " <> user.lastname
+    rescue
+      _-> nil
+    end
+  end
 end
