@@ -1,0 +1,5 @@
+h2 Edit Room
+
+= render "form.html", Map.put(assigns, action: room_path(@conn, :update, @room))
+
+= link "Back", to: room_path(@conn, :index)
