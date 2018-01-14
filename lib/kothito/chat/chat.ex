@@ -132,4 +132,13 @@ defmodule Kothito.Chat do
   def get_or_create_room!(users) when is_list(users) do
     get_room!(users) || create_room(users)
   end
+
+  # Message API
+
+  def create_message(attrs \\ %{}) do
+    %Room{}
+    |> Room.changeset(attrs)
+    |> Repo.insert()
+  end
+
 end
