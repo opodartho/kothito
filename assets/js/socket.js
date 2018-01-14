@@ -35,20 +35,5 @@ channel.on("user:" + window.user, payload => {
     }
   })
 })
-let $users = $("#users-list > a > .media-body")
-
-let hightlightActiveChat = ($user) => {
-  $("#users-list > a").addClass("border-0")
-    .removeClass("bg-blue-grey bg-lighten-5 border-right-primary border-right-2")
-  $user.removeClass("border-0")
-    .addClass("bg-blue-grey bg-lighten-5 border-right-primary border-right-2")
-}
-
-$users.on("click", event => {
-  let $user = $(event.target).parents('a')
-  let user_id = $user.data('user')
-  channel.push("chat:start", {fellow: user_id})
-  hightlightActiveChat($user)
-})
 
 export default socket

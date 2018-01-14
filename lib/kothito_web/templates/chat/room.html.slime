@@ -1,11 +1,12 @@
-a.media.border-0 href="#" data-user="#{@user.id}"
+- user = chat_with(@conn, @room)
+a.media.border-0 href="#room=#{@room.id}" data-room="#{@room.id}"
   .media-left.pr-1
     span.avatar.avatar-md.avatar-online
-      = avatar(@user)
+      = avatar(user)
       i
   .media-body.w-100
     h6.list-group-item-heading
-      = name(@user)
+      = name(user)
       .font-small-3.float-right.primary 4:14 AM
     p.list-group-item-text.text-mute.mb-0
       i.ft-check.primary.font-small-2
