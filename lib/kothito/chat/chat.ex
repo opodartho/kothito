@@ -21,6 +21,11 @@ defmodule Kothito.Chat do
     Repo.all(Room)
   end
 
+  def list_rooms(user) do
+    user = user |> Repo.preload(rooms: :users)
+    user.rooms
+  end
+
   def get_room!(users) when is_list(users) do
     query =
       from r in Room,
@@ -122,5 +127,9 @@ defmodule Kothito.Chat do
   """
   def change_room(%Room{} = room) do
     Room.changeset(room, %{})
+  end
+
+  def get_or_create_room!(users) when is_list(users) do
+    get_room!(users) || create_room(users)
   end
 end

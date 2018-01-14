@@ -15,4 +15,10 @@ defmodule KothitoWeb.ChatView do
       _-> user.username
     end
   end
+
+  def chat_with(conn, room) do
+    room.users
+    |> List.delete(current_user(conn))
+    |> List.first
+  end
 end

@@ -1,11 +1,12 @@
+require IEx
 defmodule KothitoWeb.ChatController do
   use KothitoWeb, :controller
-  import Kothito.Coherence.Schemas, only: [list_user_except: 1]
+  import Kothito.Chat, only: [list_rooms: 1]
 
   def index(conn, _params) do
-    users = list_user_except(current_user(conn).id)
+    rooms = list_rooms(current_user(conn))
     conn
-    |> assign(:users, users)
+    |> assign(:rooms, rooms)
     |> render("index.html")
   end
 end

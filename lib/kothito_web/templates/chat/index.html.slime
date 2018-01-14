@@ -7,8 +7,8 @@
           | &nbsp;Channel / Direct
       .list-group.position-relative
         #users-list.users-list-padding.media-list
-          = for user <- @users do
-            = render("user.html", conn: @conn, user: user)
+          = for room <- @rooms do
+            = render("user.html", conn: @conn, user: chat_with(@conn, room))
 .content-right
   .content-header.row
     .chats

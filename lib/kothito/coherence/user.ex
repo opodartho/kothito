@@ -21,7 +21,7 @@ defmodule Kothito.Coherence.User do
     field :github, :string
     field :bitbucket, :string
     field :avatar, Kothito.AvatarUploader.Type
-    many_to_many :rooms, KothitoWeb.Chat.Room, join_through: "rooms_users"
+    many_to_many :rooms, Kothito.Chat.Room, join_through: "rooms_users"
     coherence_schema()
 
     timestamps()
