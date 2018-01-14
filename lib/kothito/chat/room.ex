@@ -7,6 +7,7 @@ defmodule Kothito.Chat.Room do
   schema "rooms" do
     field :name, :string
 
+    many_to_many :users, KothitoWeb.Coherence.User, join_through: "rooms_users"
     timestamps()
   end
 
