@@ -2,7 +2,7 @@ defmodule KothitoWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "chat:*", KothitoWeb.ChatChannel
+  channel "rooms:*", KothitoWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -21,6 +21,8 @@ defmodule KothitoWeb.UserSocket do
         {:error}
     end
   end
+
+  def connect(_params, _socket), do: :error
 
   # Socket id's are topics that allow you to identify
   # all sockets for a given user:

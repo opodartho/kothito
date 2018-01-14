@@ -1,3 +1,32 @@
+import {Socket} from "phoenix"
+
+let $chatForm = $("#chat-input");
+
+let socket = new Socket("/socket", {params: {token: window.userToken}})
+
+socket.connect()
+
+let channel
+
+let connectChannel = (roomId) => {
+  console.log(roomId)
+  channel = socket.channel("rooms:" + roomId, {})
+  channel.join()
+    .receive("ok", resp => { console.log("Joined room successfully", resp) })
+    .receive("error", resp => { console.log("Unable to join the room", resp) })
+
+  channel.on("message:new", payload => {
+    console.log(payload)
+  })
+}
+
+$chatForm.on("keypress", event => {
+  if(event.keyCode == 13) {
+    console.log($chatForm.val())
+    channel.push("rooms:message", {message: $chatForm.val()})
+  }
+})
+
 let $users = $("#users-list > a")
 
 let hightlightActiveChat = ($user) => {
@@ -9,6 +38,8 @@ let hightlightActiveChat = ($user) => {
 
 $users.on("click", event => {
   let $user = $(event.target).parents('a')
+  let roomId = $user.data('room')
+  connectChannel(roomId)
   hightlightActiveChat($user)
 })
 
@@ -17,7 +48,9 @@ $(document).ready(() => {
   if(selectedRoom !== undefined) {
     $users.each((index) => {
       let $user = $($users[index])
-      if($user.data('room') === selectedRoom) {
+      let roomId = $user.data('room')
+      if(roomId === selectedRoom) {
+        connectChannel(roomId)
         hightlightActiveChat($user)
       }
     })
