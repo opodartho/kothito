@@ -3,11 +3,13 @@ defmodule Kothito.Chat.Room do
   import Ecto.Changeset
   alias Kothito.Chat.Room
 
+  @primary_key {:id, Ecto.UUID, autogenerate: true}
+  @foreign_key_type Ecto.UUID
 
   schema "rooms" do
     field :name, :string
 
-    many_to_many :users, KothitoWeb.Coherence.User, join_through: "rooms_users"
+    many_to_many :users, Kothito.Coherence.User, join_through: "rooms_users"
     timestamps()
   end
 
@@ -15,6 +17,5 @@ defmodule Kothito.Chat.Room do
   def changeset(%Room{} = room, attrs) do
     room
     |> cast(attrs, [:name])
-    |> validate_required([:name])
   end
 end

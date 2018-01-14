@@ -11,7 +11,8 @@
   .col-md-12
     ul.list-group
       = for user <- @users do
-        li.list-group-item.border-left-0.border-right-0
-          => img_tag avatar(user, :small), class: "avatar rounded"
-          => content_tag :strong, user.username
-          = name(user)
+        = link to: room_path(@conn, :create, user_id: user.id), method: :post do
+          li.list-group-item.border-left-0.border-right-0
+            => img_tag avatar(user, :small), class: "avatar rounded"
+            => content_tag :strong, user.username
+            = name(user)

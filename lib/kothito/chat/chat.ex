@@ -21,6 +21,19 @@ defmodule Kothito.Chat do
     Repo.all(Room)
   end
 
+  def get_room!(users) when is_list(users) do
+    query =
+      from r in Room,
+      join: ru in "rooms_users",
+      on: ru.room_id == r.id,
+      group_by: r.id,
+      having: count(r.id) == ^Enum.count(users)
+    Enum.reduce(users, query, fn user, query ->
+      from [_r, ru] in query, or_where: ru.user_id == type(^user.id, Ecto.UUID)
+    end)
+    |> Repo.one
+  end
+
   @doc """
   Gets a single room.
 
@@ -36,6 +49,15 @@ defmodule Kothito.Chat do
 
   """
   def get_room!(id), do: Repo.get!(Room, id)
+
+  def create_room(users) when is_list(users) do
+    {:ok, room} = create_room()
+    room
+    |> Repo.preload(:users)
+    |> Ecto.Changeset.change()
+    |> Ecto.Changeset.put_assoc(:users, users)
+    |> Repo.update!
+  end
 
   @doc """
   Creates a room.
