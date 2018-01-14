@@ -1,3 +1,4 @@
+require IEx
 defmodule KothitoWeb.ChatView do
   use KothitoWeb, :view
 
@@ -18,7 +19,7 @@ defmodule KothitoWeb.ChatView do
 
   def chat_with(conn, room) do
     room.users
-    |> List.delete(current_user(conn))
+    |> Enum.reject(fn(e) -> e.id === current_user(conn).id end)
     |> List.first
   end
 end
