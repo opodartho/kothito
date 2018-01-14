@@ -6,7 +6,7 @@ defmodule Kothito.Chat do
   import Ecto.Query, warn: false
   alias Kothito.Repo
 
-  alias Kothito.Chat.Room
+  alias Kothito.Chat.{Room, Message}
 
   @doc """
   Returns the list of rooms.
@@ -136,9 +136,8 @@ defmodule Kothito.Chat do
   # Message API
 
   def create_message(attrs \\ %{}) do
-    %Room{}
-    |> Room.changeset(attrs)
+    %Message{}
+    |> Message.changeset(attrs)
     |> Repo.insert()
   end
-
 end

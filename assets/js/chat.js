@@ -15,15 +15,15 @@ let connectChannel = (roomId) => {
     .receive("ok", resp => { console.log("Joined room successfully", resp) })
     .receive("error", resp => { console.log("Unable to join the room", resp) })
 
-  channel.on("message:new", payload => {
+  channel.on("message:created", payload => {
     console.log(payload)
   })
 }
 
 $chatForm.on("keypress", event => {
-  if(event.keyCode == 13) {
-    console.log($chatForm.val())
-    channel.push("rooms:message", {message: $chatForm.val()})
+  if(event.keyCode == 13 && $chatForm.val() !== '') {
+    channel.push("message:new", {body: $chatForm.val()})
+    $chatForm.val('')
   }
 })
 

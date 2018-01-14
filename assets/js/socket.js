@@ -11,29 +11,29 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 socket.connect()
 
-let channel = socket.channel("chat:init", {})
+// let channel = socket.channel("chat:init", {})
 
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+// channel.join()
+//   .receive("ok", resp => { console.log("Joined successfully", resp) })
+//   .receive("error", resp => { console.log("Unable to join", resp) })
 
-channel.on("user:" + window.user, payload => {
-  let subtopic = payload.subtopic
-  let privateChannel = socket.channel("chat:"+subtopic, {})
+// channel.on("user:" + window.user, payload => {
+//   let subtopic = payload.subtopic
+//   let privateChannel = socket.channel("chat:"+subtopic, {})
 
-  privateChannel.join()
-    .receive("ok", resp => { console.log("Joined successfully", resp) })
-    .receive("error", resp => { console.log("Unable to join", resp) })
+//   privateChannel.join()
+//     .receive("ok", resp => { console.log("Joined successfully", resp) })
+//     .receive("error", resp => { console.log("Unable to join", resp) })
 
-  privateChannel.on("chat:new", payload => {
-    console.log(payload)
-  })
+//   privateChannel.on("chat:new", payload => {
+//     console.log(payload)
+//   })
 
-  $chatForm.on("keypress", event => {
-    if(event.keyCode == 13) {
-      privateChannel.push("chat:new", {message: $chatForm.val()})
-    }
-  })
-})
+//   $chatForm.on("keypress", event => {
+//     if(event.keyCode == 13) {
+//       privateChannel.push("chat:new", {message: $chatForm.val()})
+//     }
+//   })
+// })
 
 export default socket

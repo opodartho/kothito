@@ -4,9 +4,9 @@ defmodule Kothito.Chat.Message do
   alias Kothito.Chat.Message
 
   schema "messages" do
-    field :text, :string
-    belongs_to :room, Kothito.Chat.Room
-    belongs_to :user, Kothito.Coherence.User
+    field :body, :string
+    belongs_to :room, Kothito.Chat.Room, type: Ecto.UUID
+    belongs_to :user, Kothito.Coherence.User, type: Ecto.UUID
 
     timestamps()
   end
@@ -14,7 +14,7 @@ defmodule Kothito.Chat.Message do
   @doc false
   def changeset(%Message{} = message, attrs) do
     message
-    |> cast(attrs, [:text, :user_id, :room_id])
-    |> validate_required([:text, :user_id, :room_id])
+    |> cast(attrs, [:body, :user_id, :room_id])
+    |> validate_required([:body, :user_id, :room_id])
   end
 end
