@@ -22,6 +22,8 @@
           .form-control-position
             i.fa.fa-smile-o
           input.form-control#chat-input placeholder="Type your message" type="text"
+          .form-control-position.control-position-right
+            i.ft-phone#call
         fieldset.form-group.position-relative.has-icon-left.col-2.m-0
           button.btn.btn-primary type="button"
             i.fa.fa-paper-plane-o

@@ -102,14 +102,16 @@ $users.on("click", event => {
   if($user.hasClass("bg-blue-grey")) return
   let roomId = $user.data('room')
   window.currentRoom = roomId
+  $('#call').data('room', roomId)
   connectChannel(roomId)
   hightlightActiveChat($user)
 })
 
 $(document).ready(() => {
   let selectedRoom = window.location.hash.substr(1).split("=")[1]
-  window.currentRoom = selectedRoom
   if(selectedRoom !== undefined) {
+    window.currentRoom = selectedRoom
+    $('#call').data('room', selectedRoom)
     $users.each((index) => {
       let $user = $($users[index])
       let roomId = $user.data('room')

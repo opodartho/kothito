@@ -48,7 +48,14 @@ exports.config = {
 
   modules: {
     autoRequire: {
-      "js/app.js": ["js/modal", "js/menu", "js/init", "js/chat", "js/app"],
+      "js/app.js": [
+        "js/modal",
+        "js/menu",
+        "js/init",
+        "js/chat",
+        "js/app",
+        "js/call"
+      ],
       "js/auth.js": ["js/auth/index"]
     }
   },
