@@ -10,20 +10,23 @@ html lang="en"
     link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
 
   body.call-application
-    .row
-      .col-md-12.remoteVideo
-        video(id="remoteVideo" autoplay)
-      .col-md-12.call-controls
-          button#connect.btn.btn-float.btn-square.btn-outline-cyan
-            i.ft-mic
-          | &nbsp;
-          | &nbsp;
-          button#call.btn.btn-float.btn-float-lg.btn-square.btn-outline-pink
-            i.ft-phone-off
-          | &nbsp;
-          | &nbsp;
-          button#hangup.btn.btn-float.btn-square.btn-outline-purple
-            i.ft-camera
-      .col-md-4
-        video(id="localVideo" autoplay)
+    .content
+      .content-wrapper
+        .content-body
+          .row
+            .col-md-12.remoteVideo
+              video(id="remoteVideo" autoplay)
+            .col-md-12.call-controls
+                button#connect.btn.btn-float.btn-square.btn-outline-cyan
+                  i.ft-mic
+                | &nbsp;
+                | &nbsp;
+                button#call.btn.btn-float.btn-float-lg.btn-square.btn-outline-pink
+                  i.ft-phone-off
+                | &nbsp;
+                | &nbsp;
+                button#hangup.btn.btn-float.btn-square.btn-outline-purple
+                  i.ft-camera
+            .col-md-4
+              video(id="localVideo" autoplay)
 
