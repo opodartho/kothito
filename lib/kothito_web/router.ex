@@ -37,8 +37,8 @@ defmodule KothitoWeb.Router do
     resources "/profile", ProfileController, only: [:edit, :update]
     resources "/users", ProfileController, only: [:index], as: :user
     resources "/chat", ChatController, only: [:index]
+    resources "/call", CallController, only: [:show]
     resources "/rooms", RoomController, only: [:new, :create]
-    get "/call", CallController, :index
     get "/", ChatController, :index, as: :root
   end
   # Other scopes may use custom stacks.

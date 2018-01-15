@@ -1,0 +1,29 @@
+$background: #232C3B;
+.call-application {
+  background: $background;
+
+  .remoteVideo {
+    text-align: center;
+    video{
+      width: 1280px;
+      height: 720px;
+    }
+  }
+
+  .call-controls {
+    text-align: center;
+    margin-top: -100px;
+
+    .btn-float {
+      i {
+        font-size: 2rem;
+      }
+    }
+
+    .btn-float-lg {
+      i {
+        font-size: 3.5rem;
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 defmodule KothitoWeb.CallController do
   use KothitoWeb, :controller
 
-  def index(conn, _params) do
-    render conn, "index.html"
+  plug :put_layout, false
+
+  def show(conn, _params) do
+    render conn, "show.html"
   end
 end
