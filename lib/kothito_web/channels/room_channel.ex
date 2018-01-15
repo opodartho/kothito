@@ -23,8 +23,8 @@ defmodule KothitoWeb.RoomChannel do
         })
 
     case create_message(params) do
-      {:ok, _message} ->
-        broadcast! socket, "message:created", %{payload: payload}
+      {:ok, message} ->
+        broadcast_message(socket, message)
         {:reply, :ok, socket}
       {:error, _changeset} ->
         {:noreply, socket}
@@ -33,5 +33,12 @@ defmodule KothitoWeb.RoomChannel do
 
   def terminate(_reason, socket) do
     {:ok, socket}
+  end
+
+  defp broadcast_message(socket, message) do
+    message = message |> Kothito.Repo.preload(:user)
+    rendered_message =
+      KothitoWeb.ChatView.render("message.json", %{message: message})
+    broadcast! socket, "message:created", rendered_message
   end
 end
