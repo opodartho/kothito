@@ -12,7 +12,7 @@ defmodule KothitoWeb.LayoutView do
     try do
       apply(view_module(conn), :page, [action_name(conn)])
     rescue
-      _-> default
+      _ -> default
     end
   end
 end

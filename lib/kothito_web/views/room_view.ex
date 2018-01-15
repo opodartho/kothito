@@ -10,7 +10,7 @@ defmodule KothitoWeb.RoomView do
     try do
       user.firstname <> " " <> user.lastname
     rescue
-      _-> nil
+      _ -> nil
     end
   end
 end

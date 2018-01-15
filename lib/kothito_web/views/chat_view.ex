@@ -1,4 +1,3 @@
-require IEx
 defmodule KothitoWeb.ChatView do
   use KothitoWeb, :view
 
@@ -13,7 +12,7 @@ defmodule KothitoWeb.ChatView do
     try do
       user.firstname <> " " <> user.lastname
     rescue
-      _-> user.username
+      _ -> user.username
     end
   end
 

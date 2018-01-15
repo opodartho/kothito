@@ -5,7 +5,7 @@ defmodule KothitoWeb.ProfileView do
     try do
       user.firstname <> " " <> user.lastname
     rescue
-      _-> user.username
+      _ -> user.username
     end
   end
 
