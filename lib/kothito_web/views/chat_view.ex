@@ -4,7 +4,8 @@ defmodule KothitoWeb.ChatView do
   def page(_), do: "chat-application"
 
   def avatar(user, version \\ :small) do
-    avatar_url(user, version)
+    user
+    |> avatar_url(version)
     |> img_tag
   end
 
