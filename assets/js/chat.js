@@ -34,14 +34,18 @@ let messageWithAvatar = (payload) => {
   `
 }
 
-let displayMessage = (payload) => {
+let displayMessage = (payload, insertMethod = "append") => {
   let $chats = $("#chats")
   if(isLastMessageBySameUser(payload)) {
     let $lastChatBody = $("#chats .chat:last .chat-body")
-    $lastChatBody.append(messageWithoutAvatar(payload))
+    $lastChatBody[insertMethod](messageWithoutAvatar(payload))
   } else {
-    $chats.append(messageWithAvatar(payload))
+    $chats[insertMethod](messageWithAvatar(payload))
   }
+}
+
+let displayPreviousMessages = (payload) => {
+  payload.messages.forEach( message => displayMessage(message, "prepend"))
 }
 
 let $chatForm = $("#chat-input");
@@ -53,10 +57,12 @@ socket.connect()
 let channel
 
 let connectChannel = (roomId) => {
-  console.log(roomId)
   channel = socket.channel("rooms:" + roomId, {})
   channel.join()
-    .receive("ok", resp => { console.log("Joined room successfully", resp) })
+    .receive("ok", resp => {
+      console.log("Joined room successfully") 
+      displayPreviousMessages(resp)
+    })
     .receive("error", resp => { console.log("Unable to join the room", resp) })
 
   channel.on("message:created", payload => {
