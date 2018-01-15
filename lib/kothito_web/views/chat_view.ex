@@ -26,6 +26,7 @@ defmodule KothitoWeb.ChatView do
   def render("message.json", %{chat: message}) do
     %{
       id: message.id,
+      room_id: message.room_id,
       inserted_at: message.inserted_at,
       body: message.body,
       user: %{

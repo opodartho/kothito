@@ -1,5 +1,9 @@
 import {Socket} from "phoenix"
 
+let isCurrentRoom = (payload) => {
+  return window.currentRoom === payload.room_id
+}
+
 let isMessageOwned = (payload) => {
   let currentUser = $("#chats").data("current-user")
   return currentUser === payload.user.id
@@ -35,6 +39,7 @@ let messageWithAvatar = (payload) => {
 }
 
 let displayMessage = (payload, insertMethod = "append") => {
+  if(!isCurrentRoom(payload)) return
   let $chats = $("#chats")
   if(isLastMessageBySameUser(payload)) {
     let $lastChatBody = $("#chats .chat:last .chat-body")
@@ -45,6 +50,7 @@ let displayMessage = (payload, insertMethod = "append") => {
 }
 
 let displayPreviousMessages = (payload) => {
+  $("#chats").empty()
   payload.messages.forEach( message => displayMessage(message, "prepend"))
 }
 
@@ -87,14 +93,22 @@ let hightlightActiveChat = ($user) => {
 }
 
 $users.on("click", event => {
-  let $user = $(event.target).parents('a')
+  let $user
+  if(event.target.tagName.toLowerCase() === 'a') {
+    $user = $(event.target)
+  } else {
+    $user = $(event.target).parents('a')
+  }
+  if($user.hasClass("bg-blue-grey")) return
   let roomId = $user.data('room')
+  window.currentRoom = roomId
   connectChannel(roomId)
   hightlightActiveChat($user)
 })
 
 $(document).ready(() => {
   let selectedRoom = window.location.hash.substr(1).split("=")[1]
+  window.currentRoom = selectedRoom
   if(selectedRoom !== undefined) {
     $users.each((index) => {
       let $user = $($users[index])
