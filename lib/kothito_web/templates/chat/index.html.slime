@@ -15,7 +15,7 @@
       .chat
   .content-body
     section.chat-app-window
-      .chats#chats
+      .chats#chats data-current-user="#{current_user(@conn).id}"
     section.chat-app-form
       form.chat-app-input.d-flex
         fieldset.form-group.position-relative.has-icon-left.col-10.m-0

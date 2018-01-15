@@ -1,5 +1,49 @@
 import {Socket} from "phoenix"
 
+let isMessageOwned = (payload) => {
+  let currentUser = $("#chats").data("current-user")
+  return currentUser === payload.user.id
+}
+
+let isLastMessageBySameUser = (payload) => {
+  let $lastChat = $("#chats .chat:last")
+  return $lastChat.data('user') === payload.user.id
+}
+
+let messageWithoutAvatar = (payload) => {
+  return `
+    <div class="chat-content">
+      <p>${payload.body}</p>
+    </div>
+  `
+}
+
+let messageWithAvatar = (payload) => {
+  return `
+    <div class="chat ${!isMessageOwned(payload) ? 'chat-left' : ''}"
+      data-user="${payload.user.id}">
+      <div class="chat-avatar">
+        <a class="avatar" href="javascript:void(0);" data-placement="left">
+          <img src="${payload.user.avatar}" />
+        </a>
+      </div>
+      <div class="chat-body">
+        ${messageWithoutAvatar(payload)}
+      </div>
+    </div>
+  `
+}
+
+let displayMessage = (payload) => {
+  let $chats = $("#chats")
+  if(isLastMessageBySameUser(payload)) {
+    let $lastChatBody = $("#chats .chat:last .chat-body")
+    $lastChatBody.append(messageWithoutAvatar(payload))
+  } else {
+    $chats.append(messageWithAvatar(payload))
+  }
+}
+
 let $chatForm = $("#chat-input");
 
 let socket = new Socket("/socket", {params: {token: window.userToken}})
@@ -16,7 +60,7 @@ let connectChannel = (roomId) => {
     .receive("error", resp => { console.log("Unable to join the room", resp) })
 
   channel.on("message:created", payload => {
-    console.log(payload)
+    displayMessage(payload)
   })
 }
 
