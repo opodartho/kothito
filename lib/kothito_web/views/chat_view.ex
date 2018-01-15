@@ -1,3 +1,4 @@
+require IEx
 defmodule KothitoWeb.ChatView do
   use KothitoWeb, :view
 
@@ -22,7 +23,7 @@ defmodule KothitoWeb.ChatView do
     |> List.first
   end
 
-  def render("message.json", %{message: message}) do
+  def render("message.json", %{chat: message}) do
     %{
       id: message.id,
       inserted_at: message.inserted_at,

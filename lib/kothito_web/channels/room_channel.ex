@@ -38,7 +38,7 @@ defmodule KothitoWeb.RoomChannel do
   defp broadcast_message(socket, message) do
     message = message |> Kothito.Repo.preload(:user)
     rendered_message =
-      KothitoWeb.ChatView.render("message.json", %{message: message})
+      Phoenix.View.render_one(message, KothitoWeb.ChatView, "message.json")
     broadcast! socket, "message:created", rendered_message
   end
 end
