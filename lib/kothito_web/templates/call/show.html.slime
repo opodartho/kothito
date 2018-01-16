@@ -31,3 +31,8 @@ html lang="en"
             .col-md-4
               video(id="localVideo" autoplay)
 
+    script
+      = raw "window.userToken = '#{@user_token}';"
+      = raw "window.user = '#{@current_user.id}';"
+    script src="#{static_path(@conn, "/js/vendor.js")}"
+    script src="#{static_path(@conn, "/js/app.js")}"

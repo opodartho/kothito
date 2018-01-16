@@ -67,7 +67,8 @@ exports.config = {
       jQuery: 'jquery',
       Tether: 'tether',
       bootstrap: 'bootstrap/dist/js/bootstrap.bundle.js',
-      icheck: 'icheck'
+      icheck: 'icheck',
+      AdapterJS: 'webrtc-adapter/src/js/adapter_core.js'
     }
   }
 };
