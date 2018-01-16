@@ -1,4 +1,39 @@
+import {Socket} from "phoenix"
+
 if($(".call-application").length > 0) {
+  // websocket for calling
+
+  let socket = new Socket("/socket", {params: {token: window.userToken}})
+
+  socket.connect()
+
+  let channel
+
+  let connectChannel = (roomId) => {
+    channel = socket.channel("calls:" + roomId, {})
+    channel.join()
+      .receive("ok", resp => {
+        console.log("Joined call channel successfully") 
+      })
+      .receive(
+        "error",
+        resp => {
+          console.log("Unable to join the call room", resp)
+        }
+      )
+
+    channel.on("signal:sdp", payload => {
+      console.log(payload)
+    })
+
+    channel.on("signal:ice", payload => {
+      console.log(payload)
+    })
+  }
+
+  connectChannel(window.roomId)
+  // end websocket
+
   let peerConnectionConfig = {
     "iceServers": [
       {
@@ -25,6 +60,10 @@ if($(".call-application").length > 0) {
       setLocalDescription(description).
       then(() => {
         console.log("Sending description to other peer")
+        channel.push(
+          "signal:sdp",
+          JSON.stringify(peerConnection.localDescription)
+        )
       })
   }
 
@@ -37,7 +76,7 @@ if($(".call-application").length > 0) {
     peerConnection = new RTCPeerConnection(peerConnectionConfig)
     peerConnection.onicecandidate = (event) => {
       if(event.candidate != null) {
-        console.log("Sending ICE candidate to other peer")
+        channel.push("signal:ice", JSON.stringify(event.candidate))
       }
     }
     peerConnection.oniceconnectionstatechange = (event) => {

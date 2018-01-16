@@ -34,5 +34,6 @@ html lang="en"
     script
       = raw "window.userToken = '#{@user_token}';"
       = raw "window.user = '#{@current_user.id}';"
+      = raw "window.roomId = '#{ @room.id }'"
     script src="#{static_path(@conn, "/js/vendor.js")}"
     script src="#{static_path(@conn, "/js/app.js")}"
