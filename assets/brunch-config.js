@@ -54,6 +54,7 @@ exports.config = {
         "js/init",
         "js/chat",
         "js/app",
+        "js/incoming-call",
         "js/call"
       ],
       "js/auth.js": ["js/auth/index"]

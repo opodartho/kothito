@@ -4,6 +4,7 @@ defmodule KothitoWeb.UserSocket do
   ## Channels
   channel "rooms:*", KothitoWeb.RoomChannel
   channel "calls:*", KothitoWeb.CallChannel
+  channel "users", KothitoWeb.UserChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

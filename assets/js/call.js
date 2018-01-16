@@ -141,6 +141,9 @@ if($(".call-application").length > 0) {
     getUserMedia(constraints).
     then(handleSuccess).
     catch(handleError)
+
+  // send calling signal
+  window.userChannel.push("calling", {room: window.roomId, user: window.user})
 }
 
 $(document).ready(()=>{
