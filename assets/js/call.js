@@ -2,11 +2,19 @@ $(document).ready(()=>{
   if($(".chat-application").length > 0) {
 
     let windowWidth = () => {
-      return 1490
+      if(screen.width > 1490) {
+        return 1490
+      } else if (screen.width >= 1366) {
+        return 1366
+      }
     }
 
     let windowHeight = () => {
-      return 940
+      if(screen.height > 940) {
+        return 940
+      } else if (screen.height >= 768) {
+        return 768
+      }
     }
 
     let windowTopPos = () => {

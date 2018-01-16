@@ -14,8 +14,9 @@ html lang="en"
       .content-wrapper
         .content-body
           .row
-            .col-md-12.remoteVideo
-              video(id="remoteVideo" autoplay)
+            .col-md-10.offset-md-1.remoteVideo
+              .embed-responsive.embed-responsive-16by9
+                video(id="remoteVideo" autoplay)
             .col-md-12.call-controls
                 button#connect.btn.btn-float.btn-square.btn-outline-cyan
                   i.ft-mic
