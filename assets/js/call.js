@@ -1,6 +1,16 @@
 import {Socket} from "phoenix"
 
 if($(".call-application").length > 0) {
+  let peerConnection
+  let localStream
+  let remoteStream
+  let localVideo = document.getElementById("localVideo")
+  let remoteVideo = document.getElementById("remoteVideo")
+  let constraints = {
+    audio: false,
+    video: true
+  }
+
   // websocket for calling
 
   let socket = new Socket("/socket", {params: {token: window.userToken}})
@@ -23,11 +33,24 @@ if($(".call-application").length > 0) {
       )
 
     channel.on("signal:sdp", payload => {
-      console.log(payload)
+      if(payload.user === window.user) return
+      peerConnection.setRemoteDescription(
+        new RTCSessionDescription(payload.sdp).
+          then(() => {
+            if(payload.sdp.type == "offer") {
+              peerconnection.
+                createAnswer().
+                then(createdDescription)
+            }
+          })
+      )
     })
 
     channel.on("signal:ice", payload => {
-      console.log(payload)
+      if(payload.user === window.user) return
+      peerConnection.addIceCandidate(
+        new RTCIceCandidate(payload.ice)
+      )
     })
   }
 
@@ -46,15 +69,6 @@ if($(".call-application").length > 0) {
     "iceCandidatePoolSize":"3"
   }
 
-  let peerConnection
-  let localStream
-  let remoteStream
-  let localVideo = document.getElementById("remoteVideo")
-  let constraints = {
-    audio: false,
-    video: true
-  }
-
   let createdDescription = (description) => {
     peerConnection.
       setLocalDescription(description).
@@ -67,13 +81,18 @@ if($(".call-application").length > 0) {
       })
   }
 
-  let call = () => {
+  let call = (isCaller) => {
     let videoTracks = localStream.getVideoTracks()
     if(videoTracks.length > 0) {
       console.log("Using video defice: " + videoTracks[0].label)
     }
 
     peerConnection = new RTCPeerConnection(peerConnectionConfig)
+
+    peerConnection.ontrack = (event) => {
+      remoteVideo.srcObject = event.streams[0]
+    }
+
     peerConnection.onicecandidate = (event) => {
       if(event.candidate != null) {
         channel.push("signal:ice", JSON.stringify(event.candidate))
@@ -83,9 +102,11 @@ if($(".call-application").length > 0) {
       // console.log(event)
     }
 
-    peerConnection.
-      createOffer({offerToReceiveAudio: true, offerToReceiveVideo: true}).
-      then(createdDescription)
+    if(isCaller) {
+      peerConnection.
+        createOffer({offerToReceiveAudio: true, offerToReceiveVideo: true}).
+        then(createdDescription)
+    }
   }
 
   let errorMsg = (msg, error) => {
@@ -101,7 +122,6 @@ if($(".call-application").length > 0) {
       console.log('Stream inactive')
     }
     localStream = localVideo.srcObject = stream
-    call()
   }
 
   let handleError = (error) => {

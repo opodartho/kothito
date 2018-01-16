@@ -1,4 +1,3 @@
-require IEx
 defmodule KothitoWeb.RoomChannel do
   use KothitoWeb, :channel
   import Kothito.Chat, only: [get_room!: 1, create_message: 1]

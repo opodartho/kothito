@@ -1,4 +1,3 @@
-require IEx
 defmodule KothitoWeb.CallChannel do
   @moduledoc false
   use Phoenix.Channel
