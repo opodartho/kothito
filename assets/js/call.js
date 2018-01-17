@@ -165,6 +165,27 @@ if($(".call-application").length > 0) {
   if(initiator === "true") {
     window.userChannel.push("calling", {room: window.roomId, user: window.user})
   }
+
+
+  // call controls
+  let toggleLocalVideoState = () => {
+    localVideo.srcObject.getTracks().forEach(t => t.enabled = !t.enabled)
+  }
+
+  let toggleRemoteVideoState = () => {
+    remoteVideo.srcObject.getTracks().forEach(t => t.enabled = !t.enabled)
+  }
+
+  $(document).ready(() => {
+    $("#mic").click((event) => {
+      $(event.target).find('i').toggleClass('ft-mic ft-mic-off')
+    })
+
+    $("#video").click((event) => {
+      toggleLocalVideoState()
+      $(event.target).find('i').toggleClass('ft-video ft-video-off')
+    })
+  })
 }
 
 $(document).ready(()=>{
@@ -221,16 +242,6 @@ $(document).ready(()=>{
 
     $("#call").click((event)=> {
       openCallWindow(event, true)
-    })
-  }
-
-  if($('.call-application').length > 0) {
-    $("#mic").click((event) => {
-      $(event.target).find('i').toggleClass('ft-mic ft-mic-off')
-    })
-
-    $("#video").click((event) => {
-      $(event.target).find('i').toggleClass('ft-video ft-video-off')
     })
   }
 })
