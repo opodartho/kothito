@@ -11,6 +11,7 @@ if($(".call-application").length > 0) {
     video: true
   }
 
+  let initiator = window.location.hash.substr(1).split("=")[1]
   // websocket for calling
 
   let socket = new Socket("/socket", {params: {token: window.userToken}})
@@ -33,28 +34,34 @@ if($(".call-application").length > 0) {
       )
 
     channel.on("signal:sdp", payload => {
+      if(!peerConnection) call(false)
       if(payload.user === window.user) return
       peerConnection.setRemoteDescription(
-        new RTCSessionDescription(payload.sdp).
-          then(() => {
-            if(payload.sdp.type == "offer") {
-              peerconnection.
-                createAnswer().
-                then(createdDescription)
-            }
-          })
-      )
+        new RTCSessionDescription(JSON.parse(payload.sdp))
+      ).then(() => {
+        if(payload.sdp.type == "offer") {
+          peerconnection.
+            createAnswer().
+            then(createdDescription)
+        }
+      })
     })
 
     channel.on("signal:ice", payload => {
+      if(!peerConnection) call(false)
       if(payload.user === window.user) return
       peerConnection.addIceCandidate(
-        new RTCIceCandidate(payload.ice)
-      )
+        new RTCIceCandidate(JSON.parse(payload.ice))
+      ).catch((error)=> console.log("Ice: ", error))
+    })
+
+    channel.on("call:start", payload => {
+      if(initiator === "true") {
+        call(true)
+      }
     })
   }
 
-  connectChannel(window.roomId)
   // end websocket
 
   let peerConnectionConfig = {
@@ -82,6 +89,7 @@ if($(".call-application").length > 0) {
   }
 
   let call = (isCaller) => {
+    console.log("calling")
     let videoTracks = localStream.getVideoTracks()
     if(videoTracks.length > 0) {
       console.log("Using video defice: " + videoTracks[0].label)
@@ -90,6 +98,7 @@ if($(".call-application").length > 0) {
     peerConnection = new RTCPeerConnection(peerConnectionConfig)
 
     peerConnection.ontrack = (event) => {
+      console.log("streaming")
       remoteVideo.srcObject = event.streams[0]
     }
 
@@ -102,6 +111,9 @@ if($(".call-application").length > 0) {
       // console.log(event)
     }
 
+    peerConnection.addStream(localStream)
+
+    console.log("working")
     if(isCaller) {
       peerConnection.
         createOffer({offerToReceiveAudio: true, offerToReceiveVideo: true}).
@@ -121,7 +133,8 @@ if($(".call-application").length > 0) {
     stream.oninactive = () => {
       console.log('Stream inactive')
     }
-    localStream = localVideo.srcObject = stream
+    localStream = stream
+    localVideo.srcObject = stream
   }
 
   let handleError = (error) => {
@@ -131,7 +144,7 @@ if($(".call-application").length > 0) {
     } else if (error.name === 'PermissionDeniedError') {
       errorMsg('Permissions have not been granted to use your camera and ' +
         'microphone, you need to allow the page access to your devices in ' +
-        'order for the demo to work.');
+        'order for video chat to work.');
     }
     errorMsg('getUserMedia error: ' + error.name, error);
   }
@@ -142,8 +155,13 @@ if($(".call-application").length > 0) {
     then(handleSuccess).
     catch(handleError)
 
+  connectChannel(window.roomId)
   // send calling signal
-  window.userChannel.push("calling", {room: window.roomId, user: window.user})
+  if(initiator === "true") {
+    window.userChannel.push("calling", {room: window.roomId, user: window.user})
+  } else {
+    channel.push("call:initiate", {})
+  }
 }
 
 $(document).ready(()=>{
@@ -199,7 +217,7 @@ $(document).ready(()=>{
     })
 
     $("#call").click((event)=> {
-      openCallWindow(event, false)
+      openCallWindow(event, true)
     })
   }
 })

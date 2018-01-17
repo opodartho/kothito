@@ -17,8 +17,7 @@ channel.join()
   )
 
 channel.on("call:" + window.user, payload => {
-  console.log("working")
-  // if(payload.initiator == window.user) return
+  if(payload.initiator == window.user) return
   Modalize.modal(payload.url)
 })
 

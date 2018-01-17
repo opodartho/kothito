@@ -20,4 +20,9 @@ defmodule KothitoWeb.CallChannel do
     broadcast! socket, "signal:ice", response
     {:noreply, socket}
   end
+
+  def handle_in("call:initiate", _params, socket) do
+    broadcast! socket, "call:start", %{}
+    {:noreply, socket}
+  end
 end
