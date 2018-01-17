@@ -26,7 +26,12 @@ $background: #232C3B;
 }
 
 .modal.call-incoming {
-  opacity: 0;
+  background: transparent;
+  .modal-dialog {
+    .modal-content {
+      background: transparent;
+    }
+  }
   .modal-close {
     display: none;
   }

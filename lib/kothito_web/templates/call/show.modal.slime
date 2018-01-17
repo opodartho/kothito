@@ -1,0 +1,14 @@
+- require IEx
+.row.justify-content-center
+  .col-md-4
+    .card.box-shadow-2
+      .text-center
+        .card-body
+          img.rounded-circle.height-150 src="#{avatar_url(caller(@conn, @room), :medium)}"
+        .card-body
+          h4.card-title = caller_name(@conn, @room)
+        .text-center
+          a.btn.mr-1.mb-1.btn-outline-success
+            i.ft-phone.font-medium-3
+          a.btn.mb-1.btn-outline-danger
+            i.ft-x.font-medium-3

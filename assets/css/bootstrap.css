@@ -2910,7 +2910,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-outline-success {
-  color : #16D39A;
+  color : #16D39A !important;
   background-color : transparent;
   background-image : none;
   border-color : #16D39A;
@@ -2991,7 +2991,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-outline-danger {
-  color : #FF7588;
+  color : #FF7588 !important;
   background-color : transparent;
   background-image : none;
   border-color : #FF7588;
