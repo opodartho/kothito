@@ -185,12 +185,21 @@ $(document).ready(()=>{
       `
     }
 
-    $("#call").click((event)=> {
+    let openCallWindow = (event, initiator) => {
+      let room = $(event.target).data('room')
       window.open(
-        '/call/' + $(event.target).data('room'),
+        `/call/${room}#initiator=${initiator}`,
         '_blank',
         callWindowOptions()
       );
+    }
+
+    $(document).on("click", "#receive", (event) => {
+      openCallWindow(event, false)
+    })
+
+    $("#call").click((event)=> {
+      openCallWindow(event, false)
     })
   }
 })
