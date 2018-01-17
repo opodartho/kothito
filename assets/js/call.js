@@ -36,11 +36,14 @@ if($(".call-application").length > 0) {
     channel.on("signal:sdp", payload => {
       if(!peerConnection) call(false)
       if(payload.user === window.user) return
+
+      let sdp = JSON.parse(payload.sdp)
+
       peerConnection.setRemoteDescription(
-        new RTCSessionDescription(JSON.parse(payload.sdp))
+        new RTCSessionDescription(sdp)
       ).then(() => {
-        if(payload.sdp.type == "offer") {
-          peerconnection.
+        if(sdp.type == "offer") {
+          peerConnection.
             createAnswer().
             then(createdDescription)
         }
@@ -57,6 +60,7 @@ if($(".call-application").length > 0) {
 
     channel.on("call:start", payload => {
       if(initiator === "true") {
+        console.log("starting webrtc")
         call(true)
       }
     })
@@ -67,13 +71,10 @@ if($(".call-application").length > 0) {
   let peerConnectionConfig = {
     "iceServers": [
       {
-        "urls": [
-          "stun:stun.l.google.com:19302"
-        ]
+        "urls": "stun:stun.l.google.com:19302",
+        "urls": "stun:stun.services.mozilla.com"
       }
-    ],
-    "iceTransportPolicy":"all",
-    "iceCandidatePoolSize":"3"
+    ]
   }
 
   let createdDescription = (description) => {
@@ -97,26 +98,26 @@ if($(".call-application").length > 0) {
 
     peerConnection = new RTCPeerConnection(peerConnectionConfig)
 
-    peerConnection.ontrack = (event) => {
-      console.log("streaming")
-      remoteVideo.srcObject = event.streams[0]
-    }
-
     peerConnection.onicecandidate = (event) => {
       if(event.candidate != null) {
         channel.push("signal:ice", JSON.stringify(event.candidate))
       }
     }
+
+    peerConnection.ontrack = (event) => {
+      console.log("streaming")
+      remoteVideo.srcObject = event.streams[0]
+    }
+
     peerConnection.oniceconnectionstatechange = (event) => {
       // console.log(event)
     }
 
     peerConnection.addStream(localStream)
 
-    console.log("working")
     if(isCaller) {
       peerConnection.
-        createOffer({offerToReceiveAudio: true, offerToReceiveVideo: true}).
+        createOffer().
         then(createdDescription)
     }
   }
@@ -135,6 +136,10 @@ if($(".call-application").length > 0) {
     }
     localStream = stream
     localVideo.srcObject = stream
+    if(initiator == "false") {
+      console.log("call initiating")
+      channel.push("call:initiate", {})
+    }
   }
 
   let handleError = (error) => {
@@ -159,8 +164,6 @@ if($(".call-application").length > 0) {
   // send calling signal
   if(initiator === "true") {
     window.userChannel.push("calling", {room: window.roomId, user: window.user})
-  } else {
-    channel.push("call:initiate", {})
   }
 }
 
