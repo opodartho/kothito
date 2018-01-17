@@ -6,7 +6,7 @@
   .card-header.border-0
     .card-title.text-center
       .p-1
-        = img_tag(static_path(@conn, "/images/logo.png"))
+        = img_tag(static_path(@conn, "/images/logo-expand.png"))
     h6.line-on-side.text-muted.text-center.font-small-3
       span Register in Kothito
 

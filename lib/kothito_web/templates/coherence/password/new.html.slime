@@ -1,7 +1,7 @@
 .card.border-grey.border-lighter-3.px-2.py-2.m-0.box-shadow-2.p-0
   .card-header.border-0.pb-0
     .card-title.text-center
-      = img_tag(static_path(@conn, "/images/logo.png"))
+      = img_tag(static_path(@conn, "/images/logo-expand.png"))
     h6.line-on-side.text-muted.text-center.font-small-3.pt-2
       span We will send you a link to reset password.
 
