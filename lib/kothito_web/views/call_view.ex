@@ -4,6 +4,12 @@ defmodule KothitoWeb.CallView do
   def header(_), do: nil
   def page(_), do: "call-incoming"
 
+  def avatar(user, version \\ :small) do
+    user
+    |> avatar_url(version)
+    |> img_tag
+  end
+
   def avatar_url(user, version \\ :small) do
     Kothito.AvatarUploader.url({user.avatar, user}, version)
   end

@@ -14,22 +14,25 @@ html lang="en"
       .content-wrapper
         .content-body
           .row
-            .col-md-10.offset-md-1.remoteVideo
+            .col-md-10.offset-md-1.p-0.remoteVideo
               .embed-responsive.embed-responsive-16by9
+                img.video-poster src="#{avatar_url(caller(@conn, @room))}"
                 video(id="remoteVideo" autoplay)
+              .local-video.box-shadow-5
+                .embed-responsive.embed-responsive-16by9
+                  img.video-poster-thumbnail src="#{avatar_url(current_user(@conn))}"
+                  video(id="localVideo" autoplay)
             .col-md-12.call-controls
-                button#connect.btn.btn-float.btn-square.btn-outline-cyan
+                button#mic.btn.btn-float.btn-square.btn-outline-cyan
                   i.ft-mic
                 | &nbsp;
                 | &nbsp;
-                button#call.btn.btn-float.btn-float-lg.btn-square.btn-outline-pink
+                button#hangup.btn.btn-float.btn-float-lg.btn-square.btn-outline-pink
                   i.ft-phone-off
                 | &nbsp;
                 | &nbsp;
-                button#hangup.btn.btn-float.btn-square.btn-outline-purple
-                  i.ft-camera
-            .col-md-4
-              video(id="localVideo" autoplay)
+                button#video.btn.btn-float.btn-square.btn-outline-purple
+                  i.ft-video
 
     script
       = raw "window.userToken = '#{@user_token}';"

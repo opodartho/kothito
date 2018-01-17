@@ -8,7 +8,7 @@ if($(".call-application").length > 0) {
   let remoteVideo = document.getElementById("remoteVideo")
   let constraints = {
     audio: false,
-    video: true
+    video: {width: {exact: 1280}, height: {exact: 720}}
   }
 
   let initiator = window.location.hash.substr(1).split("=")[1]
@@ -171,7 +171,7 @@ $(document).ready(()=>{
   if($(".chat-application").length > 0) {
 
     let windowWidth = () => {
-      if(screen.width > 1490) {
+      if(screen.width >= 1920) {
         return 1490
       } else if (screen.width >= 1366) {
         return 1366
@@ -179,7 +179,7 @@ $(document).ready(()=>{
     }
 
     let windowHeight = () => {
-      if(screen.height > 940) {
+      if(screen.height >=1080) {
         return 940
       } else if (screen.height >= 768) {
         return 768
@@ -221,6 +221,16 @@ $(document).ready(()=>{
 
     $("#call").click((event)=> {
       openCallWindow(event, true)
+    })
+  }
+
+  if($('.call-application').length > 0) {
+    $("#mic").click((event) => {
+      $(event.target).find('i').toggleClass('ft-mic ft-mic-off')
+    })
+
+    $("#video").click((event) => {
+      $(event.target).find('i').toggleClass('ft-video ft-video-off')
     })
   }
 })

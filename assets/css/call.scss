@@ -4,7 +4,29 @@ $background: #232C3B;
 
   .remoteVideo {
     text-align: center;
-    background: salmon;
+
+    .local-video {
+      position: absolute;
+      width: 16.66%;
+      bottom: 2rem;
+      right: 2rem;
+    }
+  }
+
+  .video-poster {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    width: 20%;
+    border-radius: 100%;
+  }
+
+  .video-poster-thumbnail {
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    width: 40%;
+    border-radius: 100%;
   }
 
   .call-controls {
