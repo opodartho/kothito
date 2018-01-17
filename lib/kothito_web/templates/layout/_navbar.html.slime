@@ -6,8 +6,9 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.fixed-top.navbar-semi
           a.nav-link.nav-menu-main.menu-toggle.hidden-xs href="#" 
             i.ft-menu.font-large-1
         li.nav-item
-          a.navbar-brand href="/" 
-            =img_tag static_path(@conn, "/images/logo.png"), alt: "Kothito", class: "brand-logo"
+          a.navbar-brand href="/"
+            =img_tag "", alt: "Kothito", class: "brand-logo",
+              data: [expand: static_path(@conn, "/images/logo-expand.png"), collapse: static_path(@conn, "/images/logo-collapse.png")]
           li.nav-item.d-md-none
             a.nav-link.open-navbar-container data-target="#navbar-mobile" data-toggle="collapse" 
               i.fa.fa-ellipsis-v

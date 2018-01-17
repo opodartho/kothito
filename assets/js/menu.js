@@ -301,20 +301,20 @@
       }
     },
 
-    /*changeLogo: function(menuType){
+    changeLogo: function(menuType){
       var logo = $('.brand-logo');
       var logoText = $('.brand-text');
       if(menuType == 'expand'){
-        // logo.attr('src',logo.data('expand'));
+        logo.attr('src',logo.data('expand'));
         logoText.delay(100).fadeIn(200);
-        // logoText.addClass('d-inline-block').removeClass('d-none');
+        logoText.addClass('d-inline-block').removeClass('d-none');
       }
       else{
-        // logo.attr('src',logo.data('collapse'));
+        logo.attr('src',logo.data('collapse'));
         logoText.fadeOut(100);
-        // logoText.addClass('d-none').removeClass('d-inline-block');
+        logoText.addClass('d-none').removeClass('d-inline-block');
       }
-    },*/
+    },
 
     transit: function(callback1, callback2) {
       var menuObj = this;
@@ -391,9 +391,9 @@
             localStorage.setItem("menuLocked", "true");
           }
         }
-        /*if( $body.data('menu') == 'vertical-menu' || $body.data('menu') == 'vertical-menu-modern'){
+        if( $body.data('menu') == 'vertical-menu' || $body.data('menu') == 'vertical-menu-modern'){
           this.changeLogo('expand');
-        }*/
+        }
         this.transit(function() {
           $body.removeClass('menu-collapsed').addClass('menu-expanded');
           this.collapsed = false;
@@ -429,9 +429,9 @@
             localStorage.setItem("menuLocked", "false");
           }
         }
-        /*if( ($body.data('menu') == 'vertical-menu' ) || ($body.data('menu') == 'vertical-menu-modern' ) ){
+        if( ($body.data('menu') == 'vertical-menu' ) || ($body.data('menu') == 'vertical-menu-modern' ) ){
           this.changeLogo('collapse');
-        }*/
+        }
         this.transit(function() {
           $body.removeClass('menu-expanded').addClass('menu-collapsed');
           this.collapsed = true;
