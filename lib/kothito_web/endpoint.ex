@@ -9,7 +9,7 @@ defmodule KothitoWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/", from: :kothito, gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(audio css fonts images js favicon.ico robots.txt)
 
   plug Plug.Static,
     at: "/uploads", from: Path.expand("./uploads"), gzip: false

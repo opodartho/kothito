@@ -36,7 +36,8 @@ exports.config = {
       ignore: [/vendor/]
     },
     copycat: {
-      "fonts": ["node_modules/font-awesome/fonts"]
+      "fonts": ["node_modules/font-awesome/fonts"],
+      "audio": ["audio"]
     },
     sass: {
       options: {

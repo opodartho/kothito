@@ -37,9 +37,17 @@ $(function(){
       }
   })
 
-  window.Modalize.modal = (url) => {
-    let $anchor = $(`<a href="${url}" data-modal="true"></a>`)
+  window.Modalize.modal = (param) => {
+    if(param === "hide") {
+      $(modalSelector).modal(param)
+      return
+    }
+    let $anchor = $(`<a href="${param}" data-modal="true"></a>`)
     $(modalHolderSelector).append($anchor)
     $anchor.click()
+  }
+
+  window.Modalize.on = (event, callback) => {
+    $(modalSelector).on(event, callback)
   }
 });

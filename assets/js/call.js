@@ -238,6 +238,7 @@ $(document).ready(()=>{
 
     $(document).on("click", "#receive", (event) => {
       openCallWindow(event, false)
+      Modalize.modal("hide")
     })
 
     $("#call").click((event)=> {

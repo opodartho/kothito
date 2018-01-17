@@ -1,13 +1,27 @@
 .row.justify-content-center
-  .col-md-4
+  .col-md-4.col-lg-5
     .card.box-shadow-2
       .text-center
         .card-body
-          img.rounded-circle.height-150 src="#{avatar_url(caller(@conn, @room), :medium)}"
+          img.rounded-circle.height-200 src="#{avatar_url(caller(@conn, @room), :medium)}"
         .card-body
           h4.card-title = caller_name(@conn, @room)
-        .text-center
+        .text-center.mb-1
           a.btn.mr-1.mb-1.btn-outline-success#receive
-            i.ft-phone.font-medium-3 data-room="#{@room.id}"
-          a.btn.mb-1.btn-outline-danger
-            i.ft-x.font-medium-3
+            i.fa.fa-volume-control-phone.font-large-1 data-room="#{@room.id}"
+          a.btn.mb-1.btn-outline-danger data-dismiss="modal"
+            i.fa.fa-times.font-large-1
+audio(id="ringSound" src="#{static_path(@conn, "/audio/ring.mp3")}" autoplay loop)
+
+javascript:
+  $(document).ready(() => {
+    setTimeout(() => {
+      Modalize.modal("hide")
+    }, 15000)
+
+    Modalize.on("hidden.bs.modal", (e) => {
+      let ringSound = document.getElementById('ringSound')
+      ringSound.pause()
+      ringSound.currentTime = 0
+    })
+  })
