@@ -2,6 +2,7 @@ $(function(){
   'use strict';
   let modalHolderSelector= '#modal-holder'
   let modalSelector = '.modal'
+  window.Modalize = window.Modalize || {}
 
   let appendQueryString = (url, queryVars) => {
       let firstSeperator = (url.indexOf('?')==-1 ? '?' : '&');
@@ -15,7 +16,7 @@ $(function(){
 
   $(document).on('click', 'a[data-modal]', (event) => {
     event.preventDefault()
-    let location = $(this.activeElement).attr('href')
+    let location = $(event.target).attr('href')
     // adding media type modal into url
     location = appendQueryString(location, {'_format': 'modal'})
     $.get(location, (data) => {
@@ -36,4 +37,10 @@ $(function(){
           find(modalSelector).modal()
       }
   })
+
+  window.Modalize.modal = (url) => {
+    let $anchor = $(`<a href="${url}" data-modal="true"></a>`)
+    $(modalHolderSelector).append($anchor)
+    $anchor.click()
+  }
 });
