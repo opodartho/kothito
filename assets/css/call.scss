@@ -25,3 +25,9 @@ $background: #232C3B;
   }
 }
 
+.modal.call-incoming {
+  opacity: 0;
+  .modal-close {
+    display: none;
+  }
+}

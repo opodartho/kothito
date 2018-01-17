@@ -2,6 +2,7 @@ defmodule KothitoWeb.RoomView do
   use KothitoWeb, :view
   alias Kothito.AvatarUploader
 
+  def header(_), do: "Direct Messages"
   def avatar(user, version) do
     AvatarUploader.url({user.avatar, user}, version)
   end

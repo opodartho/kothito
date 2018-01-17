@@ -1,10 +1,10 @@
-.modal role="dialog" tabindex="-1" 
+.modal role="dialog" tabindex="-1" class=(page(@conn, "kothito-modal"))
   .modal-close
     button.close aria-label="Close" data-dismiss="modal" type="button" 
       i.ft-x
   .modal-dialog.modal-lg role="document" 
     .modal-content
       .modal-header
-        h1.modal-title Direct Messages
+        h1.modal-title = header(@conn, "Kothito")
       .modal-body
         = render @view_module, @view_template, assigns

@@ -1,4 +1,5 @@
 .modal {
+  background: #fff;
   .modal-close {
     right: 4rem;
     top: 4rem;
@@ -31,7 +32,7 @@
     }
   }
 }
-.modal-backdrop {
-  opacity: 1 !important;
-  background-color: #fff !important;
+
+.modal-backdrop.show {
+  opacity: 0 !important;
 }
