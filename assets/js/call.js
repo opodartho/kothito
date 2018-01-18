@@ -122,8 +122,12 @@ if($(".call-application").length > 0) {
     }
   }
 
-  let errorMsg = (msg, error) => {
-    console.log(msg, error)
+  let errorMsg = (msg, _error) => {
+    let $alert = $("#alert")
+    $alert.html(msg).removeClass('hidden')
+    setTimeout(() => {
+      $alert.addClass('hidden')
+    }, 15000)
   }
 
   let handleSuccess = (stream) => {
@@ -137,7 +141,6 @@ if($(".call-application").length > 0) {
     localStream = stream
     localVideo.srcObject = stream
     if(initiator == "false") {
-      console.log("call initiating")
       channel.push("call:initiate", {})
     }
   }
@@ -145,13 +148,14 @@ if($(".call-application").length > 0) {
   let handleError = (error) => {
     if (error.name === 'ConstraintNotSatisfiedError') {
       errorMsg('The resolution ' + constraints.video.width.exact + 'x' +
-        constraints.video.width.exact + ' px is not supported by your device.');
-    } else if (error.name === 'PermissionDeniedError') {
+        constraints.video.width.exact + ' px is not supported by your device.')
+    } else if (error.name === 'NotAllowedError') {
       errorMsg('Permissions have not been granted to use your camera and ' +
         'microphone, you need to allow the page access to your devices in ' +
-        'order for video chat to work.');
+        'order for video chat to work.')
+    } else {
+      errorMsg('getUserMedia error: ' + error.name, error);
     }
-    errorMsg('getUserMedia error: ' + error.name, error);
   }
 
   navigator.
@@ -184,6 +188,14 @@ if($(".call-application").length > 0) {
     $("#video").click((event) => {
       toggleLocalVideoState()
       $(event.target).find('i').toggleClass('ft-video ft-video-off')
+    })
+
+    $("#hangup").click((event) => {
+      if(!peerConnection) {
+        errorMsg("You are not on call with anyone")
+      } else {
+        peerConnection.close()
+      }
     })
   })
 }
