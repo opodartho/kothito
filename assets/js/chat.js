@@ -38,21 +38,21 @@ let messageWithAvatar = (payload) => {
   `
 }
 
-let displayMessage = (payload, insertMethod = "append") => {
+let displayMessage = (payload) => {
   if(!isCurrentRoom(payload)) return
   let $chats = $("#chats")
   if(isLastMessageBySameUser(payload)) {
     let $lastChatBody = $("#chats .chat:last .chat-body")
-    $lastChatBody[insertMethod](messageWithoutAvatar(payload))
+    $lastChatBody.append(messageWithoutAvatar(payload))
   } else {
-    $chats[insertMethod](messageWithAvatar(payload))
+    $chats.append(messageWithAvatar(payload))
   }
   scrollToBottom()
 }
 
 let displayPreviousMessages = (payload) => {
   $("#chats").empty()
-  payload.messages.forEach( message => displayMessage(message, "prepend"))
+  payload.messages.reverse().forEach( message => displayMessage(message))
 }
 
 let $chatForm = $("#chat-input");
