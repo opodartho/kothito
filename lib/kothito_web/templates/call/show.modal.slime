@@ -7,8 +7,8 @@
         .card-body
           h4.card-title = caller_name(@conn, @room)
         .text-center.mb-1
-          a.btn.mr-1.mb-1.btn-outline-success#receive
-            i.fa.fa-volume-control-phone.font-large-1 data-room="#{@room.id}"
+          a.btn.mr-1.mb-1.btn-outline-success#receive data-room="#{@room.id}"
+            i.fa.fa-volume-control-phone.font-large-1
           a.btn.mb-1.btn-outline-danger data-dismiss="modal"
             i.fa.fa-times.font-large-1
 audio(id="ringSound" src="#{static_path(@conn, "/audio/ring.mp3")}" autoplay loop)
@@ -17,7 +17,7 @@ javascript:
   $(document).ready(() => {
     setTimeout(() => {
       Modalize.modal("hide")
-    }, 15000)
+    }, 45000)
 
     Modalize.on("hidden.bs.modal", (e) => {
       let ringSound = document.getElementById('ringSound')

@@ -229,6 +229,9 @@ $(document).ready(()=>{
 
     let openCallWindow = (event, initiator) => {
       let room = $(event.target).data('room')
+      if(room === undefined) {
+        room = $(event.target).parent('a').data('room')
+      }
       window.open(
         `/call/${room}#initiator=${initiator}`,
         '_blank',
