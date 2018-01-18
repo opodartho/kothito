@@ -10,6 +10,10 @@
           = for room <- @rooms do
             = render("room.html", conn: @conn, room: room)
 .content-right
+  .welcome
+    .row.align-items-center.h-100.text-center
+      .col-12
+        h1 = "Welcome, #{current_user(@conn).firstname}"
   .content-header.row
     .chats
       .chat
