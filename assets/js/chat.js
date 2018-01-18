@@ -86,6 +86,7 @@ $chatForm.on("keypress", event => {
 let $users = $("#users-list > a")
 
 let hightlightActiveChat = ($user) => {
+  $(".welcome").addClass('hidden')
   $("#users-list > a").addClass("border-0")
     .removeClass("bg-blue-grey bg-lighten-5 border-right-primary border-right-2")
   $user.removeClass("border-0")
