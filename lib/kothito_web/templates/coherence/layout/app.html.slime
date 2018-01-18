@@ -6,8 +6,9 @@ html.loading lang="en" data-textdirection="ltr"
     meta content="width=device-width, initial-scale=1" name="viewport"
     meta content="" name="description"
     meta content="" name="author"
-    title Login
+    title Kothito!
     link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
+    link rel="icon" href="#{static_url(@conn, "/favicon.ico")}" type="image/png"
   body.vertical-layout.vertical-menu.1-column.blank-page.blank-page data-open="click" data-menu="vertical-menu"
     .app-content.content
       .content-wrapper
