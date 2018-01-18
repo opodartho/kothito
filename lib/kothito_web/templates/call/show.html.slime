@@ -21,7 +21,7 @@ html lang="en"
               .local-video.box-shadow-5
                 .embed-responsive.embed-responsive-16by9
                   img.video-poster-thumbnail src="#{avatar_url(current_user(@conn))}"
-                  video(id="localVideo" autoplay)
+                  video(id="localVideo" autoplay muted="muted")
             .col-md-12.call-controls
                 button#mic.btn.btn-float.btn-square.btn-outline-cyan
                   i.ft-mic

@@ -7,7 +7,7 @@ if($(".call-application").length > 0) {
   let localVideo = document.getElementById("localVideo")
   let remoteVideo = document.getElementById("remoteVideo")
   let constraints = {
-    audio: false,
+    audio: true,
     video: {width: {exact: 1280}, height: {exact: 720}}
   }
 
