@@ -47,6 +47,7 @@ let displayMessage = (payload, insertMethod = "append") => {
   } else {
     $chats[insertMethod](messageWithAvatar(payload))
   }
+  scrollToBottom()
 }
 
 let displayPreviousMessages = (payload) => {
@@ -82,6 +83,11 @@ $chatForm.on("keypress", event => {
     $chatForm.val('')
   }
 })
+
+let scrollToBottom = () => {
+  let $chatWrapper = document.getElementsByClassName('chat-app-window')[0]
+  $chatWrapper.scrollTop = $chatWrapper.scrollHeight
+}
 
 let $users = $("#users-list > a")
 
