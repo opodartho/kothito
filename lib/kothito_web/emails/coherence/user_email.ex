@@ -18,7 +18,7 @@ defmodule KothitoWeb.Coherence.UserEmail do
     |> to(user_email(user))
     |> add_reply_to()
     |> subject(dgettext("coherence", "%{site_name} - Reset password instructions", site_name: site_name()))
-    |> render_body("password.html", %{url: url, name: first_name(user.name)})
+    |> render_body("password.html", %{url: url, name: user_name(user)})
   end
 
   def confirmation(user, url) do
@@ -27,7 +27,7 @@ defmodule KothitoWeb.Coherence.UserEmail do
     |> to(user_email(user))
     |> add_reply_to()
     |> subject(dgettext("coherence", "%{site_name} - Confirm your new account", site_name: site_name()))
-    |> render_body("confirmation.html", %{url: url, name: first_name(user.name)})
+    |> render_body("confirmation.html", %{url: url, name: user_name(user)})
   end
 
   def invitation(invitation, url) do
@@ -45,7 +45,7 @@ defmodule KothitoWeb.Coherence.UserEmail do
     |> to(user_email(user))
     |> add_reply_to()
     |> subject(dgettext("coherence", "%{site_name} - Unlock Instructions", site_name: site_name()))
-    |> render_body("unlock.html", %{url: url, name: first_name(user.name)})
+    |> render_body("unlock.html", %{url: url, name: user_name(user)})
   end
 
   defp add_reply_to(mail) do
@@ -64,7 +64,15 @@ defmodule KothitoWeb.Coherence.UserEmail do
   end
 
   defp user_email(user) do
-    {user.name, user.email}
+    {user_name(user), user.email}
+  end
+
+  defp user_name(user) do
+    try do
+      user.firstname <> " " <> user.lastname
+    rescue
+      _ -> user.username
+    end
   end
 
   defp from_email do

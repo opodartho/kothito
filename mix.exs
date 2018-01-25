@@ -26,7 +26,8 @@ defmodule Kothito.Mixfile do
         :runtime_tools,
         :arc_ecto,
         :scrivener_ecto,
-        :elastic_sync
+        :elastic_sync,
+        :gen_smtp
       ]
     ]
   end
@@ -49,6 +50,7 @@ defmodule Kothito.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:coherence, "~> 0.5"},
+      {:gen_smtp, "~> 0.12.0"},
       {:arc_ecto, "~> 0.7.0"},
       {:scrivener_ecto, "~> 1.0"},
       {:elastic_sync, github: "promptworks/elastic_sync"},
