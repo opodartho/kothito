@@ -27,3 +27,5 @@ npm-debug.log
 /config/*.secret.exs
 
 /assets/static/images/portrait/
+
+.env

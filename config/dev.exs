@@ -54,6 +54,10 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-# Finally import the config/dev.secret.exs
-# which should be versioned separately.
-import_config "dev.secret.exs"
+config :kothito, Kothito.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("DB_USER"),
+  password: System.get_env("DB_PASS"),
+  database: System.get_env("DB_NAME"),
+  hostname: System.get_env("DB_HOST"),
+  pool_size: System.get_env("DB_POOL_SIZE")

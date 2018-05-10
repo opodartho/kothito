@@ -26,7 +26,6 @@ defmodule Kothito.Mixfile do
         :runtime_tools,
         :arc_ecto,
         :scrivener_ecto,
-        :elastic_sync,
         :gen_smtp
       ]
     ]
