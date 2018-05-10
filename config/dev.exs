@@ -56,8 +56,4 @@ config :phoenix, :stacktrace_depth, 20
 
 config :kothito, Kothito.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("DB_USER"),
-  password: System.get_env("DB_PASS"),
-  database: System.get_env("DB_NAME"),
-  hostname: System.get_env("DB_HOST"),
-  pool_size: System.get_env("DB_POOL_SIZE")
+  pool_size: System.get_env("POOL_SIZE")
